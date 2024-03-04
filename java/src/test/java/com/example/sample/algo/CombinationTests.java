@@ -16,7 +16,7 @@ public class CombinationTests {
      * @param out       result of combination (size = r)
      * @param r         size of out
      * @param start     start index in data to be candidate
-     * @param depth     current level of combination
+     * @param depth     current level of combination, if depth==2 then 0~(depth-1) index is filled in out array 
      */
     public <E> void combination(E[] data, E[] out, int r, int start, int depth) {
         System.out.println(String.format("depth=%d, start=%d", depth, start));
@@ -37,9 +37,6 @@ public class CombinationTests {
     @Test
     public void run() {
         int r = 2;
-        //Arrays.asList('a', 'b', 'c', 'd'));
-        //List.of('a', 'b', 'c', 'd')
-        //Stream.of('a', 'b', 'c', 'd').toList()
         Character[] data = {'a', 'b', 'c', 'd'}; // n = 4
         Character[] out = new Character[r];
 

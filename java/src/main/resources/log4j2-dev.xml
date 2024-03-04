@@ -43,7 +43,6 @@
         <!-- off, fatal, error, warn, info, debug, trace, all -->
         <Root level="error" additivity="false">
             <AppenderRef ref="console"/>
-            <AppenderRef ref="file"/>
         </Root>
 
         <!-- =================================================================== -->
@@ -69,7 +68,6 @@
         <!-- =================================================================== -->
         <Logger name="com.example.sample" level="error" additivity="false">
             <AppenderRef ref="console" />
-            <AppenderRef ref="file" />
         </Logger>
 
         <!-- =================================================================== -->
