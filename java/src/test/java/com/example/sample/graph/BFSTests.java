@@ -36,7 +36,7 @@ public class BFSTests {
         }
 
         /**
-         * print searched node using BFS start from s node
+         * BFS traversal using Queue
          */
         void BFSTraversal(int startVertex) {
             // stack/queue : to make order of next visiting vertex
