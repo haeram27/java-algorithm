@@ -29,26 +29,26 @@ public class DFSRecursiveTests {
         }
 
         // recursive can be replace with stack
-        void DFSUtil(int s, boolean[] visited) {
+        void DFSRecursiveTraversal(int s, boolean[] visited) {
             visited[s] = true;
             System.out.print(s + " ");
 
             for (int n : adj.get(s)) {
                 if (!visited[n])
-                    DFSUtil(n, visited);
+                    DFSRecursiveTraversal(n, visited);
             }
         }
 
         void DFS(int v) {
             Arrays.fill(visited, false);
-            DFSUtil(v, visited);
+            DFSRecursiveTraversal(v, visited);
             System.out.println();
         }
 
         void DFS() {
             for (int i = 0; i < V; ++i) {
                 Arrays.fill(visited, false);
-                DFSUtil(i, visited);
+                DFSRecursiveTraversal(i, visited);
                 System.out.println();
             }
         }
