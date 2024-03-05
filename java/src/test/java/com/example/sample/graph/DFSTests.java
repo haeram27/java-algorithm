@@ -4,6 +4,7 @@ import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -28,27 +29,25 @@ public class DFSTests {
             adj.get(src).add(dest);
         }
 
-        /*
-         * stack/queue : to make order of next visiting vertex
-         * visited : to check vertext is visited(enqueue or enstack) or not
-         */
-        void DFSTraversal(int vertex) {
+        void DFSTraversal(int startVertex) {
+            // stack/queue : to make order of next visiting vertex
+            // visited : to check vertext is visited(enqueue or enstack) before or not
+            ArrayDeque<Integer> stack = new ArrayDeque<>();
             boolean visited[] = new boolean[numberOfVertex];
-            ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
 
             // initialize stack with start point
-            visited[vertex] = true;
-            stack.offerFirst(vertex);
+            visited[startVertex] = true;
+            stack.push(startVertex);
 
             // traversal graph with stack
             while (!stack.isEmpty()) {
-                int cur = stack.poll();
+                int cur = stack.pop();
                 System.out.print(cur + " ");
 
                 for (int next : adj.get(cur)) {
                     if (!visited[next]) {
                         visited[next] = true;
-                        stack.offerFirst(next);
+                        stack.push(next);
                     }
                 }
             }

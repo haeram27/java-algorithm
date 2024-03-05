@@ -3,6 +3,7 @@ package com.example.sample.graph;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -37,17 +38,15 @@ public class BFSTests {
         /**
          * print searched node using BFS start from s node
          */
-        void BFSTraversal(int s) {
-            /*
-             * stack/queue : to make order of next visiting vertex
-             * visited : to check vertext is visited(enqueue or enstack) before or not
-             */
-            ArrayDeque<Integer> queue = new ArrayDeque<Integer>();
+        void BFSTraversal(int startVertex) {
+            // stack/queue : to make order of next visiting vertex
+            // visited : to check vertext is visited(enqueue or enstack) before or not
+            ArrayDeque<Integer> queue = new ArrayDeque<>();
             boolean visited[] = new boolean[numberOfVertex];
 
             // initialize queue with start point
-            visited[s] = true;
-            queue.offer(s);
+            visited[startVertex] = true;
+            queue.offer(startVertex);
 
             // traversal graph with queue
             while (!queue.isEmpty()) {
@@ -60,7 +59,7 @@ public class BFSTests {
                     // if it's not visited then check it as visited and enqueue
                     if (!visited[next]) {
                         visited[next] = true;
-                        queue.offerLast(next);
+                        queue.offer(next);
                     }
                 }
             }
