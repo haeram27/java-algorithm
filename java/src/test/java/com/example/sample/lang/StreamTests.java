@@ -2,6 +2,7 @@ package com.example.sample.lang;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -42,7 +43,8 @@ public class StreamTests {
         // 0 2 4
 
         // stream 단일요소 반환 0+1+2+3+4
-        list.stream().reduce((a, b) -> a + b).get();
+        var n = list.stream().reduce((a, b) -> a + b).get();
+        System.out.println(n);
         // 10
     }
 }
