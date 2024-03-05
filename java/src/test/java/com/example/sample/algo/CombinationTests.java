@@ -6,9 +6,24 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class CombinationTests {
 
+    // TODO: implement combination() Under Here
+    public <T> void combination(T[] data, T[] out, int r, int depth, int start) {
+        System.out.println("TODO");
+    }
+
+    @Test
+    public void run() {
+        int r = 2;
+        String[] data = {"a", "b", "c", "d"}; // n = 4
+        String[] out = new String[r];
+
+        System.out.println("\n[combination recursive]===================");
+
+        /* !!!! combination caller !!!! */
+        combination(data, out, r, 0, 0);
+    }
+
     /**
-     * TODO: implement combination() Under Here
-     *
      * @brief combination
      *
      * @tparam T
@@ -18,7 +33,7 @@ public class CombinationTests {
      * @param start     start is index of data to be candidate of out[depth]
      * @param depth     current level of combination, if depth==2 then 0~(depth-1) index is filled in out array 
      */
-    public <T> void combination(T[] data, T[] out, int r, int depth, int start) {
+    public <T> void combination_answer(T[] data, T[] out, int r, int depth, int start) {
         //System.out.println(String.format("depth=%d, start=%d", depth, start));
         if (depth == r) {
             for (var e : out) {
@@ -32,17 +47,5 @@ public class CombinationTests {
             out[depth] = data[i];
             combination(data, out, r, depth + 1, i + 1);
         }
-    }
-
-    @Test
-    public void run() {
-        int r = 2;
-        String[] data = {"a", "b", "c", "d"}; // n = 4
-        String[] out = new String[r];
-
-        System.out.println("\n[combination recursive]===================");
-
-        /* !!!! combination caller !!!! */
-        combination(data, out, r, 0, 0);
     }
 }
