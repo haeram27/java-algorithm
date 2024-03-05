@@ -29,9 +29,9 @@ public class CombinationTests {
      * @tparam T
      * @param data      element list (size >= r)
      * @param out       result of combination (size = r)
-     * @param r         size of out
-     * @param start     start is index of data to be candidate of out[depth]
+     * @param r         round (number of output elements)
      * @param depth     current level of combination, if depth==2 then 0~(depth-1) index is filled in out array 
+     * @param start     start is index of data to be candidate of out[depth]
      */
     public <T> void combination_answer(T[] data, T[] out, int r, int depth, int start) {
         //System.out.println(String.format("depth=%d, start=%d", depth, start));
@@ -45,7 +45,7 @@ public class CombinationTests {
 
         for (int i = start; i < data.length; i++) {
             out[depth] = data[i];
-            combination(data, out, r, depth + 1, i + 1);
+            combination_answer(data, out, r, depth + 1, i + 1);
         }
     }
 }

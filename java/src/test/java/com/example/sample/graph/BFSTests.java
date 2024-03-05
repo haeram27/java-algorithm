@@ -3,7 +3,6 @@ package com.example.sample.graph;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Queue;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,17 +10,17 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class BFSTests {
     /* directional graph class using adjacency list */
     class Graph {
-        private int V; // number of vertexes
+        private int numberOfVertex;
         private List<List<Integer>> adj; // adjacency list
 
         /** Constructor*/
-        Graph(int v) {
+        Graph(int size) {
             // initialize number of vertexes
-            V = v;
+            numberOfVertex = size;
 
             // initialize adjacency list
             adj = new ArrayList<List<Integer>>();
-            for (int i = 0; i < v; ++i) {
+            for (int i = 0; i < size; ++i) {
                 adj.add(new ArrayList<Integer>());
             }
         }
@@ -35,32 +34,46 @@ public class BFSTests {
             adj.get(s).add(n);
         }
 
-        /** print searched node using BFS start from s node */
-        void BFS(int s) {
-            // whether visited node (init value: false)
-            boolean visited[] = new boolean[V];
+        /**
+         * print searched node using BFS start from s node
+         */
+        void BFSTraversal(int s) {
+            /*
+             * stack/queue : to make order of next visiting vertex
+             * visited : to check vertext is visited(enqueue or enstack) before or not
+             */
+            ArrayDeque<Integer> queue = new ArrayDeque<Integer>();
+            boolean visited[] = new boolean[numberOfVertex];
 
-            // Queue for BFS traversal
-            Queue<Integer> queue = new ArrayDeque<Integer>();
-
-            // check visited node and enqueue
+            // initialize queue with start point
             visited[s] = true;
             queue.offer(s);
 
-            // loop until queue is empty
+            // traversal graph with queue
             while (!queue.isEmpty()) {
-                // dequeue visited node and print it
-                s = queue.poll();
-                System.out.print(s + " ");
+                // get current visited vertext
+                int cur = queue.poll();
+                System.out.print(cur + " ");
 
-                // get adjacent all node of visited node
-                for (int n : adj.get(s)) {
-                    // if it's not visited node then check it as visited and enqueue
-                    if (!visited[n]) {
-                        visited[n] = true;
-                        queue.offer(n);
+                // get adjacent of current vertex
+                for (int next : adj.get(cur)) {
+                    // if it's not visited then check it as visited and enqueue
+                    if (!visited[next]) {
+                        visited[next] = true;
+                        queue.offerLast(next);
                     }
                 }
+            }
+            System.out.println();
+        }
+
+        void BFS(int start) {
+            BFSTraversal(start);
+        }
+
+        void BFS() {
+            for (int i = 0; i < numberOfVertex; ++i) {
+                BFSTraversal(i);
             }
         }
     }
@@ -83,5 +96,6 @@ public class BFSTests {
         g.addEdge(4, 2);
         g.addEdge(4, 3);
         g.BFS(0); /* BFS searching start from given node */
+        g.BFS();
     }
 }

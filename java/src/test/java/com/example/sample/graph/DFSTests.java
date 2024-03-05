@@ -1,6 +1,8 @@
 package com.example.sample.graph;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,43 +12,82 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class DFSTests {
     class Graph {
-        private int V;
+        private int numberOfVertex;
         private List<List<Integer>> adj;
 
-        Graph(int v) {
-            V = v;
+
+        Graph(int size) {
+            numberOfVertex = size;
             adj = new ArrayList<List<Integer>>();
-            for (int i = 0; i < v; ++i) {
+            for (int i = 0; i < size; ++i) {
                 adj.add(new ArrayList<Integer>());
             }
         }
 
-        void addEdge(int s, int n) {
-            adj.get(s).add(n);
+        void addEdge(int src, int dest) {
+            adj.get(src).add(dest);
         }
 
-        void DFSUtil(int s, boolean[] visited) {
-            visited[s] = true;
-            System.out.print(s + " ");
+        /*
+         * stack/queue : to make order of next visiting vertex
+         * visited : to check vertext is visited(enqueue or enstack) or not
+         */
+        void DFSTraversal(int vertex) {
+            boolean visited[] = new boolean[numberOfVertex];
+            ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
 
-            for (int n : adj.get(s)) {
-                if (!visited[n])
-                    DFSUtil(n, visited);
+            // initialize stack with start point
+            visited[vertex] = true;
+            stack.offerFirst(vertex);
+
+            // traversal graph with stack
+            while (!stack.isEmpty()) {
+                int cur = stack.poll();
+                System.out.print(cur + " ");
+
+                for (int next : adj.get(cur)) {
+                    if (!visited[next]) {
+                        visited[next] = true;
+                        stack.offerFirst(next);
+                    }
+                }
             }
+            System.out.println();
+        }
+
+        // !!! ReverseAdjecentOrder makes same order of recursive call
+        void DFSTraversalReverseAdjecentOrder(int vertex) {
+            boolean visited[] = new boolean[numberOfVertex];
+            ArrayDeque<Integer> stack = new ArrayDeque<Integer>();
+
+            // initialize stack with start point
+            visited[vertex] = true;
+            stack.offerFirst(vertex);
+
+            while (!stack.isEmpty()) {
+                int cur = stack.poll();
+                System.out.print(cur + " ");
+
+                List<Integer> list = new ArrayList<>(adj.get(cur));
+                Collections.reverse(list);
+
+                for (int next : list) {
+                    if (!visited[next]) {
+                        visited[next] = true;
+                        stack.offerFirst(next);
+                    }
+                }
+            }
+            System.out.println();
         }
 
         void DFS(int v) {
-            boolean[] visited = new boolean[V];
-
-            DFSUtil(v, visited);
+            DFSTraversal(v);
         }
 
         void DFS() {
-            boolean[] visited = new boolean[V];
-
-            for (int i = 0; i < V; ++i) {
-                if (visited[i] == false)
-                    DFSUtil(i, visited);
+            for (int i = 0; i < numberOfVertex; ++i) {
+                DFSTraversal(i);
             }
         }
     }

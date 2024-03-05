@@ -1,4 +1,4 @@
-package com.example.sample.ds;
+package com.example.sample.graph;
 
 import java.util.ArrayDeque;
 import java.util.Queue;

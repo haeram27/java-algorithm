@@ -1,4 +1,4 @@
-package com.example.sample.ds;
+package com.example.sample.graph;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

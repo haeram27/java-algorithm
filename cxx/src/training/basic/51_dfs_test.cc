@@ -74,7 +74,7 @@ void dfs_answer(vector<vector<int>>& graph, int start) {
      * sk(stack) : contains adjacent nodes of each passed nodes
      * while : pop next node in sk(stack)
      * for : to push all of adjcent nodes of current node to sk(stack)
-     * visited : to check whether adjcent node is pushed(visited) before in sk(stack)
+     * visited : to check whether adjcent node is pushed(visited) before into sk(stack)
      */
     while (sk.size()) {
         int x = sk.front(); // x is visited (in stack) vertex
