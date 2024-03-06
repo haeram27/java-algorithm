@@ -8,19 +8,7 @@ public class CombinationTests {
 
     // TODO: implement combination() Under Here
     public <T> void combination(T[] data, T[] out, int r, int depth, int start) {
-        System.out.println("TODO");
-    }
-
-    @Test
-    public void run() {
-        int r = 2;
-        String[] data = {"a", "b", "c", "d"}; // n = 4
-        String[] out = new String[r];
-
-        System.out.println("\n[combination recursive]===================");
-
-        /* !!!! combination caller !!!! */
-        combination(data, out, r, 0, 0);
+        // TODO:
     }
 
     /**
@@ -44,8 +32,22 @@ public class CombinationTests {
         }
 
         for (int i = start; i < data.length; i++) {
+            // data[i] is selected for current depth
             out[depth] = data[i];
+            // data[i] can NOT be select in next depth because pass i+1 as start
             combination_answer(data, out, r, depth + 1, i + 1);
         }
+    }
+
+    @Test
+    public void run() {
+        int r = 2;
+        String[] data = {"a", "b", "c", "d"}; // n = 4
+        String[] out = new String[r];
+
+        System.out.println("\n[combination recursive]===================");
+
+        /* !!!! combination caller !!!! */
+        combination(data, out, r, 0, 0);
     }
 }

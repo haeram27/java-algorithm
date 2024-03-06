@@ -31,7 +31,11 @@ public class DFSTests {
         /**
          * DFS traversal using Stack
          */
-        void DFSTraversal(int startVertex) {
+        void DFSTraversal(int s) {
+            // TODO
+        }
+
+        void DFSTraversal_answer(int startVertex) {
             // visited : to check vertext is visited(enqueue or enstack) before or not
             boolean visited[] = new boolean[numberOfVertex];
             visited[startVertex] = true;
@@ -42,12 +46,16 @@ public class DFSTests {
 
             // traversal graph with stack
             while (!stack.isEmpty()) {
+                // get current visited vertex
                 int cur = stack.pop();
                 System.out.print(cur + " ");
 
+                // get adjcents of current visited vertex
                 for (int next : adj.get(cur)) {
                     if (!visited[next]) {
+                        // if vertex is visited once it can NOT be visited again
                         visited[next] = true;
+                        // insert next candidate vertex to visit into stack(LIFO order)
                         stack.push(next);
                     }
                 }

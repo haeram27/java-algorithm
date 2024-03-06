@@ -37,7 +37,11 @@ public class BFSTests {
         /**
          * BFS traversal using Queue
          */
-        void BFSTraversal(int startVertex) {
+        void BFSTraversal(int s) {
+            // TODO
+        }
+
+        void BFSTraversal_answer(int startVertex) {
             // visited : to check vertext is visited(enqueue or enstack) or not
             boolean visited[] = new boolean[numberOfVertex];
             visited[startVertex] = true;
@@ -48,15 +52,16 @@ public class BFSTests {
 
             // traversal graph with queue
             while (!queue.isEmpty()) {
-                // get current visited vertext
+                // get current vertext
                 int cur = queue.poll();
                 System.out.print(cur + " ");
 
                 // get adjacent of current vertex
                 for (int next : adj.get(cur)) {
-                    // if it's not visited then check it as visited and enqueue
                     if (!visited[next]) {
+                        // if vertex is visited once it can NOT be visited again
                         visited[next] = true;
+                        // insert next vertex to visit into queue(FIFO order)
                         queue.offer(next);
                     }
                 }
