@@ -22,5 +22,23 @@ public class OptionalTests {
             System.out.println("null");
         });
 
+        Optional.of("1").map(Integer::valueOf).ifPresentOrElse(e -> {
+            System.out.println(e);
+        }, () -> {
+            System.out.println("null");
+        });
+
+        Optional.of("result").map(e -> 1).ifPresentOrElse(e -> {
+            System.out.println(e);
+        }, () -> {
+            System.out.println("null");
+        });
+
+        Optional.of("result").flatMap((val) -> Optional.ofNullable(1)).ifPresentOrElse(e -> {
+            System.out.println(e);
+        }, () -> {
+            System.out.println("null");
+        });
+
     }
 }
