@@ -28,8 +28,8 @@ public class ParseProperties {
         try (Stream<String> lines = Files.lines(Paths.get(path))) {
             lines.filter(line -> line.contains("=")).forEach(line -> {
                 var pair = line.split("=", 2);
-                if (pair.length < 2)
-                    return;
+                if (pair.length < 2) return;
+
                 var key = pair[0];
                 var value = pair[1];
                 if (map.containsKey(key)) {
