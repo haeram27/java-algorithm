@@ -1,6 +1,7 @@
 package com.example.sample.ds;
 
 import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -30,7 +31,7 @@ public class ArrayTests {
                     // int endY = col+off;
                     //
                     // System.out.println(String.format("%d %d %d %d", 
-                    // startX, startY, endX, endY));
+                    //   startX, startY, endX, endY));
                 }
             }
         }
