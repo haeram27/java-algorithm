@@ -35,12 +35,14 @@ public class DFSTests {
             // TODO
         }
 
+        /**
+         * visited : to check vertext is already comsumed(enqueue or enstack) or not
+         * stack : to make order(LIFO) of next visiting vertex
+         */
         void DFSTraversal_answer(int startVertex) {
-            // visited : to check vertext is visited(enqueue or enstack) before or not
             boolean[] visited = new boolean[numberOfVertex];
             visited[startVertex] = true;
 
-            // stack/queue : to make order of next visiting vertex
             ArrayDeque<Integer> stack = new ArrayDeque<>();
             stack.push(startVertex);
 
@@ -53,7 +55,7 @@ public class DFSTests {
                 // get adjcents of current visited vertex
                 for (int next : adj.get(cur)) {
                     if (!visited[next]) {
-                        // if vertex is visited once it can NOT be visited again
+                        // if vertex is visited(consumed) once it can NOT be visited again
                         visited[next] = true;
                         // insert next candidate vertex to visit into stack(LIFO order)
                         stack.push(next);

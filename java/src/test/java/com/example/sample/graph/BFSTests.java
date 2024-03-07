@@ -41,12 +41,14 @@ public class BFSTests {
             // TODO
         }
 
+        /**
+         * visited : to check vertext is already comsumed(enqueue or enstack) or not
+         * queue : to make order(FIFO) of next visiting vertex
+         */
         void BFSTraversal_answer(int startVertex) {
-            // visited : to check vertext is visited(enqueue or enstack) or not
             boolean[] visited = new boolean[numberOfVertex];
             visited[startVertex] = true;
 
-            // stack/queue : to make order of next visiting vertex
             ArrayDeque<Integer> queue = new ArrayDeque<>();
             queue.offer(startVertex);
 
@@ -59,7 +61,7 @@ public class BFSTests {
                 // get adjacent of current vertex
                 for (int next : adj.get(cur)) {
                     if (!visited[next]) {
-                        // if vertex is visited once it can NOT be visited again
+                        // if vertex is visited(consumed) once it can NOT be visited again
                         visited[next] = true;
                         // insert next vertex to visit into queue(FIFO order)
                         queue.offer(next);

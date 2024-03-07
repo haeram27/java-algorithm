@@ -31,6 +31,10 @@ public class CombinationTests {
             return;
         }
 
+        /**
+         * depth : index of out[], level of combination selecting tree
+         * i : index for data[] to be out[depth], i can be controlled by for() and start
+         */
         for (int i = start; i < data.length; i++) {
             // data[i] is selected for current depth
             out[depth] = data[i];

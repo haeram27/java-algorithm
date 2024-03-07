@@ -33,15 +33,18 @@ public class PermutationTests {
             return;
         }
 
-        // i is index for data[] to be out[depth]
+        /**
+         * depth : index of out[], level of permutation selecting tree
+         * i : index for data[] to be out[depth], i can be controlled by for() and visited[]
+         * visited[i] : if true then data[i] can NOT be used in next depth 
+         *              if false then data[i] can be used in previous/currrent depth
+         */
         for (int i = 0; i < data.length; i++) {
             if (!visited[i]) {
                 out[depth] = data[i];
-                // data[i] can NOT be selected in next depth
-                visited[i] = true;
+                visited[i] = true; // data[i] can NOT be selected in next depth
                 permutation_answer(data, out, r, depth + 1, visited);
-                // data[i] can be selected again in previous depth
-                visited[i] = false;
+                visited[i] = false; // data[i] can be selected again in previous depth
             }
         }
     }
