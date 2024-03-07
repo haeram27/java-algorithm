@@ -12,6 +12,7 @@ public class TreeTraversalTests {
     class Node {
         int data;
         Node left, right;
+
         public Node(int item) {
             data = item;
         }
@@ -19,140 +20,46 @@ public class TreeTraversalTests {
 
     // BFS == queue, Level Order Traversal
     void levelOrderTraversal(Node root) {
-        if (root == null) return;
-
-        Deque<Node> queue = new ArrayDeque<Node>();
-        queue.offer(root);
-
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
-            System.out.print(node.data + " ");
-
-            if (node.left != null) queue.offer(node.left);
-            if (node.right != null) queue.offer(node.right);
-        }
+        // TODO:
     }
 
     void reverseLevelOrderTraversal(Node root) {
-        if (root == null) return;
-
-        Deque<Node> q = new ArrayDeque<>();
-        q.add(root);
-
-        Deque<Integer> stack = new ArrayDeque<>();
-
-        Node node;
-
-        while (!q.isEmpty()) {
-            node = q.poll();
-            stack.push(node.data);
-
-            if (node.right != null) q.add(node.right);
-            if (node.left != null) q.add(node.left);
-        }
-
-        // pop all nodes from the stack and print them
-        while (!stack.isEmpty()) {
-            System.out.print(stack.pop() + " ");
-        }
+        // TODO:
     }
 
     // DFS == stack, preOrder, inOrder, postOrder
     void dfsTraversal(Node root) {
-        if (root == null) return;
-
-        Deque<Node> stack = new ArrayDeque<>();
-        stack.push(root);
-
-        while (!stack.isEmpty()) {
-            Node node = stack.pop();
-            System.out.print(node.data + " ");
-            if (node.right != null) stack.push(node.right);
-            if (node.left != null) stack.push(node.left);
-        }
+        // TODO:
     }
 
     void preOrderTraversal(Node root) {
-        if (root == null) return;
-
-        System.out.print(root.data + " ");
-        if (root.left != null) preOrderTraversal(root.left);
-        if (root.right != null) preOrderTraversal(root.right);
+        // TODO:
     }
 
     void inOrderTraversal(Node root) {
-        if (root == null) return;
-
-        if (root.left != null) inOrderTraversal(root.left);
-        System.out.print(root.data + " ");
-        if (root.right != null) inOrderTraversal(root.right);
+        // TODO:
     }
 
     void postOrderTraversal(Node root) {
-        if (root == null) return;
-
-        if (root.left != null) postOrderTraversal(root.left);
-        if (root.right != null) postOrderTraversal(root.right);
-        System.out.print(root.data + " ");
+        // TODO:
     }
 
     // max number of link (count leaf from 0)
     public int getMaxDepth(Node root) {
-        if (root == null) return 0;
-
-        int lDepth = 0;
-        int rDepth = 0;
-
-        // Leaf Node This state except leaf from count
-        if (root.left == null && root.right == null)
-            return 0;
-
-        if (root.left != null) lDepth = getMaxDepth(root.left);
-        if (root.right != null) rDepth = getMaxDepth(root.right);
-
-        return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
+        // TODO:
+        return 0;
     }
- 
+
     // max level of node (count leaf from 1)
     public int getMaxLevel(Node root) {
-        if (root == null) return 0;
-
-        int lDepth = 0;
-        int rDepth = 0;
-
-        // Leaf Node:: This accounts for height = 1.
-        if (root.left == null && root.right == null)
-            return 1;
-
-        if (root.left != null) lDepth = getMaxLevel(root.left);
-        if (root.right != null) rDepth = getMaxLevel(root.right);
-
-        return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
+        // TODO:
+        return 0;
     }
 
     //find Lowest Common Ancester
-    Node findLCA(Node root, int n1, int n2) { 
-        // Base case 
-        if (root == null) return null;
-
-        // If either n1 or n2 matches with root's key, report 
-        // the presence by returning root (Note that if a key is 
-        // ancestor of other, then the ancestor key becomes LCA 
-        if (root.data == n1 || root.data == n2) 
-            return root;
-
-        // Look for keys in left and right subtrees 
-        Node left_lca = findLCA(root.left, n1, n2);
-        Node right_lca = findLCA(root.right, n1, n2);
-
-        // If both of the above calls return Non-NULL, then one key 
-        // is present in once subtree and other is present in other, 
-        // So this node is the LCA 
-        if (left_lca != null && right_lca != null)
-            return root;
-
-        // Otherwise check if left subtree or right subtree is LCA 
-        return (left_lca != null) ? left_lca : right_lca; 
+    Node findLCA(Node root, int n1, int n2) {
+        // TODO:
+        return null;
     }
 
     @Test
@@ -169,7 +76,7 @@ public class TreeTraversalTests {
         System.out.println("Level order: ");
         levelOrderTraversal(root);
         System.out.println();
-        
+
         System.out.println("Reverse Level order: ");
         reverseLevelOrderTraversal(root);
         System.out.println();
@@ -198,5 +105,142 @@ public class TreeTraversalTests {
 
         System.out.println("findLCA: ");
         System.out.println(findLCA(root, 4, 5).data);
+    }
+
+    // BFS == queue, Level Order Traversal
+    void levelOrderTraversal_a(Node root) {
+        if (root == null)
+            return;
+
+        Deque<Node> queue = new ArrayDeque<Node>();
+        queue.offer(root);
+
+        while (!queue.isEmpty()) {
+            Node node = queue.poll();
+            System.out.print(node.data + " ");
+
+            if (node.left != null)
+                queue.offer(node.left);
+            if (node.right != null)
+                queue.offer(node.right);
+        }
+    }
+
+    void reverseLevelOrderTraversal_a(Node root) {
+        if (root == null)
+            return;
+
+        Deque<Node> q = new ArrayDeque<>();
+        q.add(root);
+
+        Deque<Integer> stack = new ArrayDeque<>();
+
+        Node node;
+
+        while (!q.isEmpty()) {
+            node = q.poll();
+            stack.push(node.data);
+
+            if (node.right != null)
+                q.add(node.right);
+            if (node.left != null)
+                q.add(node.left);
+        }
+
+        // pop all nodes from the stack and print them
+        while (!stack.isEmpty()) {
+            System.out.print(stack.pop() + " ");
+        }
+    }
+
+    // DFS == stack, preOrder, inOrder, postOrder
+    void dfsTraversal_a(Node root) {
+        if (root == null)
+            return;
+
+        Deque<Node> stack = new ArrayDeque<>();
+        stack.push(root);
+
+        while (!stack.isEmpty()) {
+            Node node = stack.pop();
+            System.out.print(node.data + " ");
+            if (node.right != null)
+                stack.push(node.right);
+            if (node.left != null)
+                stack.push(node.left);
+        }
+    }
+
+    void preOrderTraversal_a(Node root) {
+        if (root == null)
+            return;
+
+        System.out.print(root.data + " ");
+        if (root.left != null)
+            preOrderTraversal(root.left);
+        if (root.right != null)
+            preOrderTraversal(root.right);
+    }
+
+    void inOrderTraversal_a(Node root) {
+        if (root == null)
+            return;
+
+        if (root.left != null)
+            inOrderTraversal(root.left);
+        System.out.print(root.data + " ");
+        if (root.right != null)
+            inOrderTraversal(root.right);
+    }
+
+    void postOrderTraversal_a(Node root) {
+        if (root == null)
+            return;
+
+        if (root.left != null)
+            postOrderTraversal(root.left);
+        if (root.right != null)
+            postOrderTraversal(root.right);
+        System.out.print(root.data + " ");
+    }
+
+    // max number of link (count leaf from 0)
+    public int getMaxDepth_a(Node root) {
+        if (root == null)
+            return 0;
+
+        int lDepth = 0;
+        int rDepth = 0;
+
+        // Leaf Node This state except leaf from count
+        if (root.left == null && root.right == null)
+            return 0;
+
+        if (root.left != null)
+            lDepth = getMaxDepth(root.left);
+        if (root.right != null)
+            rDepth = getMaxDepth(root.right);
+
+        return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
+    }
+
+    // max level of node (count leaf from 1)
+    public int getMaxLevel_a(Node root) {
+        if (root == null)
+            return 0;
+
+        int lDepth = 0;
+        int rDepth = 0;
+
+        // Leaf Node:: This accounts for height = 1.
+        if (root.left == null && root.right == null)
+            return 1;
+
+        if (root.left != null)
+            lDepth = getMaxLevel(root.left);
+        if (root.right != null)
+            rDepth = getMaxLevel(root.right);
+
+        return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
     }
 }
