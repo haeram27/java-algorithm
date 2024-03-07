@@ -37,7 +37,7 @@ public class DFSTests {
 
         void DFSTraversal_answer(int startVertex) {
             // visited : to check vertext is visited(enqueue or enstack) before or not
-            boolean visited[] = new boolean[numberOfVertex];
+            boolean[] visited = new boolean[numberOfVertex];
             visited[startVertex] = true;
 
             // stack/queue : to make order of next visiting vertex

@@ -24,13 +24,13 @@ public class ArrayTests {
                 for (int col = 0; col + off < colLen; ++col) {
                     ++count;
 
-                    //                    int startX = row;
-                    //                    int startY = col;
-                    //                    int endX = row+off;
-                    //                    int endY = col+off;
+                    // int startX = row;
+                    // int startY = col;
+                    // int endX = row+off;
+                    // int endY = col+off;
                     //
-                    //                    System.out.println(String.format("%d %d %d %d", 
-                    //                            startX, startY, endX, endY));
+                    // System.out.println(String.format("%d %d %d %d", 
+                    // startX, startY, endX, endY));
                 }
             }
         }
