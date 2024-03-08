@@ -36,21 +36,28 @@ public class BFSTests {
 
         /**
          * BFS traversal using Queue
+         * @param s start vertex
+         * @param n number of vertex
+         * @param g graph
          */
-        void BFSTraversal(int s) {
+        void BFSTraversal(int s, int n, List<List<Integer>> g) {
             // TODO
         }
 
         /**
-         * visited : to check vertext is already comsumed(enqueue or enstack) or not
-         * queue : to make order(FIFO) of next visiting vertex
+         * BFS traversal using Queue
+         * @param s start vertex
+         * @param n number of vertex
+         * @param g graph
          */
-        void BFSTraversal_answer(int startVertex) {
-            boolean[] visited = new boolean[numberOfVertex];
-            visited[startVertex] = true;
+        void BFSTraversal_answer(int s, int n, List<List<Integer>> g) {
+            // visited : to check vertext is already comsumed(enqueue or enstack) or not
+            boolean[] visited = new boolean[n];
+            visited[s] = true;
 
+            // queue : to make order(FIFO) of next visiting vertex
             ArrayDeque<Integer> queue = new ArrayDeque<>();
-            queue.offer(startVertex);
+            queue.offer(s);
 
             // traversal graph with queue
             while (!queue.isEmpty()) {
@@ -59,7 +66,7 @@ public class BFSTests {
                 System.out.print(cur + " ");
 
                 // get adjacent of current vertex
-                for (int next : adj.get(cur)) {
+                for (int next : g.get(cur)) {
                     if (!visited[next]) {
                         // if vertex is visited(consumed) once it can NOT be visited again
                         visited[next] = true;
@@ -72,12 +79,12 @@ public class BFSTests {
         }
 
         void BFS(int start) {
-            BFSTraversal(start);
+            BFSTraversal(start, numberOfVertex, adj);
         }
 
         void BFS() {
-            for (int i = 0; i < numberOfVertex; ++i) {
-                BFSTraversal(i);
+            for (int start = 0; start < numberOfVertex; ++start) {
+                BFSTraversal(start, numberOfVertex, adj);
             }
         }
     }
