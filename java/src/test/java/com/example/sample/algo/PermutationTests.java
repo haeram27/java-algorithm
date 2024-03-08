@@ -6,10 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class PermutationTests {
-    // TODO: implement permutation() Under Here
-    public <T> void permutation(T[] data, T[] out, int r, int depth, boolean[] visited) {
-        // TODO:
-    }
 
     /**
      *
@@ -47,6 +43,11 @@ public class PermutationTests {
                 visited[i] = false; // data[i] can be selected again in previous depth
             }
         }
+    }
+
+    // TODO: implement permutation() Under Here
+    public <T> void permutation(T[] data, T[] out, int r, int depth, boolean[] visited) {
+        // TODO:
     }
 
     @Test

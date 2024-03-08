@@ -6,11 +6,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class CombinationTests {
 
-    // TODO: implement combination() Under Here
-    public <T> void combination(T[] data, T[] out, int r, int depth, int start) {
-        // TODO:
-    }
-
     /**
      * @brief combination
      *
@@ -41,6 +36,11 @@ public class CombinationTests {
             // data[i] can NOT be select in next depth because pass i+1 as start
             combination_answer(data, out, r, depth + 1, i + 1);
         }
+    }
+
+    // TODO: implement combination() Under Here
+    public <T> void combination(T[] data, T[] out, int r, int depth, int start) {
+        // TODO:
     }
 
     @Test
