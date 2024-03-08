@@ -1,4 +1,4 @@
-package com.example.sample.graph;
+package com.example.sample.base.graph;
 
 import java.util.ArrayList;
 import java.util.Arrays;

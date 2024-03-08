@@ -1,4 +1,4 @@
-package com.example.sample.sort;
+package com.example.sample.base.sort;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

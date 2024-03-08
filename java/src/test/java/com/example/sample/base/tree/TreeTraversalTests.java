@@ -1,4 +1,4 @@
-package com.example.sample.tree;
+package com.example.sample.base.tree;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -103,7 +103,9 @@ public class TreeTraversalTests {
         System.out.println(getMaxLevel(root));
 
         System.out.println("findLCA: ");
-        System.out.println(findLCA(root, 4, 5).data);
+        var lca = findLCA(root, 4, 5);
+        if (lca != null)
+            System.out.println(lca.data);
     }
 
     // BFS == queue, Level Order Traversal

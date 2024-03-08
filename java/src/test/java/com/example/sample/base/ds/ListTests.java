@@ -1,4 +1,4 @@
-package com.example.sample.ds;
+package com.example.sample.base.ds;
 
 import java.util.stream.Collectors;
 import java.util.stream.Stream;

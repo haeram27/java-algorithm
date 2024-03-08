@@ -1,4 +1,4 @@
-package com.example.sample.sort;
+package com.example.sample.base.sort;
 
 import java.util.Arrays;
 import org.junit.jupiter.api.Test;
