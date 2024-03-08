@@ -17,6 +17,12 @@ public class WordGroupingTest {
         final fnial fanil
         proxy pxory
         abyss
+    
+        output for s2 ::
+        fired fried 
+        gainly 
+        dreads 
+        listen silent 
     */
     String s1 = new String("final fnial fanil proxy pxory abyss");
     String s2 = new String("fired gainly dreads listen silent fried");
@@ -29,9 +35,14 @@ public class WordGroupingTest {
     void answer() {
         Map<String, List<String>> m = new LinkedHashMap<>();
 
-        String[] tokens = s2.split(" ");
+        // StringTokenizer st = new StringTokenizer(s2);
+        // while (st.hasMoreTokens()) {
+        //     System.out.println(st.nextToken());
+        // }
+
+        String[] tokens = s2.split("[\\s]+");
         for (String t : tokens) {
-            if (t.length() > 0) {
+            if (!t.isBlank()) {
                 char[] ar = t.toCharArray();
                 Arrays.sort(ar);
                 var k = new String(ar);
