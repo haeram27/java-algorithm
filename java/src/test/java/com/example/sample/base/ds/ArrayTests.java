@@ -7,38 +7,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class ArrayTests {
     /**
-     * find all Square from given array(NxM array)
-     * Square is NxN shape of Rectangle
-     * start coordinate is most left bottom point
-     * end coordinate is most right top point
-     * 
-     * key point:
-     *     endX == startX + off
-     *     endY == startY + off
-     */
-    static void allSubSquare(int rowLen, int colLen) {
-        int count = 0;
-        // off is edge length of Square
-        for (int off = Math.min(rowLen, colLen) - 1; off > 0; --off) {
-            for (int row = 0; row + off < rowLen; ++row) {
-                for (int col = 0; col + off < colLen; ++col) {
-                    ++count;
-
-                    // int startX = row;
-                    // int startY = col;
-                    // int endX = row+off;
-                    // int endY = col+off;
-                    //
-                    // System.out.println(String.format("%d %d %d %d", 
-                    //   startX, startY, endX, endY));
-                }
-            }
-        }
-
-        System.out.println(count);
-    }
-
-    /**
      * reverse one dimensional array
      *    1  2  3   >>>   3  2  1
      */
@@ -143,8 +111,6 @@ public class ArrayTests {
     @Test
     public void run() {
         long start = System.currentTimeMillis();
-
-        allSubSquare(16, 12);
 
         int[] a1 = {10, 20, 30, 40, 50};
         reverseArray(a1);
