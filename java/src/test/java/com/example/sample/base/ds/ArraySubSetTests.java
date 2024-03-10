@@ -48,8 +48,7 @@ public class ArraySubSetTests {
                     if (endX < rowLen && endY < colLen) {
                         ++count;
 
-                        System.out
-                                .println(String.format("%d %d %d %d", startX, startY, endX, endY));
+                        System.out.println(String.format("%d %d %d %d", startX, startY, endX, endY));
                     }
                 }
             }
