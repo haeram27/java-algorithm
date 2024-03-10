@@ -34,7 +34,7 @@ public class ParameterizedTests {
 
 
     /*
-    * @ValueSource : one argument, list
+    * @ValueSource : single argument, list
     */
     // @ValueSource is only support these types:
 
@@ -126,8 +126,7 @@ public class ParameterizedTests {
     @ParameterizedTest
     @EnumSource(value = Month.class, names = ".+BER", mode = EnumSource.Mode.MATCH_ANY)
     void fourMonths_AreEndingWithBer(Month month) {
-        EnumSet<Month> months =
-                EnumSet.of(Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER, Month.DECEMBER);
+        EnumSet<Month> months = EnumSet.of(Month.SEPTEMBER, Month.OCTOBER, Month.NOVEMBER, Month.DECEMBER);
         assertTrue(months.contains(month));
     }
 
