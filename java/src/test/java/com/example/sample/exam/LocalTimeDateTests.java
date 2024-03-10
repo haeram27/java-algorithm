@@ -1,4 +1,4 @@
-package com.example.sample;
+package com.example.sample.exam;
 
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -20,20 +20,15 @@ public class LocalTimeDateTests extends EvaluatedTimeTests {
          */
         long utcTimestamp = LocalDateTime.now().atZone(ZoneId.of("UTC")).toInstant().toEpochMilli();
         // 2024-03-10T01:21:36.022Z
-        System.out.println(
-                LocalDateTime.ofInstant(Instant.ofEpochMilli(utcTimestamp), ZoneId.of("UTC")));
+        System.out.println(LocalDateTime.ofInstant(Instant.ofEpochMilli(utcTimestamp), ZoneId.of("UTC")));
         // 2024-03-10T01:21:36.022Z[UTC]
-        System.out.println(
-                ZonedDateTime.ofInstant(Instant.ofEpochMilli(utcTimestamp), ZoneId.of("UTC")));
+        System.out.println(ZonedDateTime.ofInstant(Instant.ofEpochMilli(utcTimestamp), ZoneId.of("UTC")));
 
-        long localTimestamp =
-                LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
+        long localTimestamp = LocalDateTime.now().atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
         // 2024-03-10T01:21:36.023+09:00[Asia/Seoul]
-        System.out.println(LocalDateTime.ofInstant(Instant.ofEpochMilli(localTimestamp),
-                ZoneId.systemDefault()));
+        System.out.println(LocalDateTime.ofInstant(Instant.ofEpochMilli(localTimestamp), ZoneId.systemDefault()));
         // 2024-03-10T01:21:36.023+09:00[Asia/Seoul]
-        System.out.println(ZonedDateTime.ofInstant(Instant.ofEpochMilli(localTimestamp),
-                ZoneId.systemDefault()));
+        System.out.println(ZonedDateTime.ofInstant(Instant.ofEpochMilli(localTimestamp), ZoneId.systemDefault()));
 
         /*
          * timezone
