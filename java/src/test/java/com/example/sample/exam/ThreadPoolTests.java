@@ -78,13 +78,20 @@ public class ThreadPoolTests {
         }
     }
 
+    /* 
+       ArrayBlockingQueue: restricts nubmer of tasks
+       if offer() is failed by queue capacities are reached max
+       then handler is called
+       ThreadPoolExecutor's default handler is AbortPolicy class (RejectedExecutionHandler)
+       and it throws RejectedExecutionException
+     */
     @Test
-    void restrictWorkloadThreadPoolTest() {
+    void threadPoolExecutorWithArrayBlockingQueue() {
 
         // max queue size is 100
         var boundedQueue = new ArrayBlockingQueue<Runnable>(100);
         // create 1000 tasks to blocking queue
-        Collection<Callable<String>> tasks = IntStream.rangeClosed(1, 1_000).mapToObj(i -> task).toList();
+        Collection<Callable<String>> tasks = IntStream.rangeClosed(1, 2_000).mapToObj(i -> task).toList();
 
         var cachedPool = new ThreadPoolExecutor(2, 20, 60, TimeUnit.SECONDS, boundedQueue);
         try {
