@@ -7,6 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class MergeSortTests {
 
+    // divide array 
     public static void mergeSort(int[] a, int len) {
         if (len < 2)
             return;
@@ -23,8 +24,11 @@ public class MergeSortTests {
             r[i - mid] = a[i];
         }
 
+        // divde array to l and r recursively
         mergeSort(l, mid);
         mergeSort(r, len - mid);
+
+        // after divide recursively, merge l and r array
         merge(a, l, r, mid, len - mid);
 
 
@@ -35,6 +39,8 @@ public class MergeSortTests {
         int j = 0; // j index of r
         int k = 0; // k index of a
 
+        // insert item until each index reaches to the end of l or r size
+        // after this while(), one of l or r's index is completely consumed.
         while (i < lLen && j < rLen) {
             if (l[i] <= r[j])
                 a[k++] = l[i++];
@@ -42,19 +48,15 @@ public class MergeSortTests {
                 a[k++] = r[j++];
         }
 
+        // consume l array if there is remaining index
         while (i < lLen) {
             a[k++] = l[i++];
         }
 
+        // consume r array if there is remaining index
         while (j < rLen) {
             a[k++] = r[j++];
         }
-    }
-
-    public static void swap(int[] a, int i, int j) {
-        int tmp = a[i];
-        a[i] = a[j];
-        a[j] = tmp;
     }
 
     @Test
