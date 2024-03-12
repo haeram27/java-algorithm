@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class SimpleSortTests {
-    public static void selectionSort(int a[]) {
+    void selectionSort(int a[]) {
         for (int i = 0; i < a.length - 1; ++i) {
             int min = i;
             for (int j = i + 1; j < a.length; ++j) {
@@ -17,7 +17,7 @@ public class SimpleSortTests {
         }
     }
 
-    public static void bubbleSort(int a[]) {
+    void bubbleSort(int a[]) {
         int len = a.length;
 
         for (int i = 1; i < len; ++i) {
@@ -29,7 +29,7 @@ public class SimpleSortTests {
         }
     }
 
-    public static void insertionSort(int a[]) {
+    void insertionSort(int a[]) {
         int len = a.length;
         int i, j, key;
 
@@ -42,7 +42,7 @@ public class SimpleSortTests {
         }
     }
 
-    public static void swap(int a[], int i, int j) {
+    void swap(int a[], int i, int j) {
         int tmp = a[i];
         a[i] = a[j];
         a[j] = tmp;

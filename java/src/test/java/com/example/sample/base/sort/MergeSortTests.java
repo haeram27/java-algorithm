@@ -8,7 +8,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class MergeSortTests {
 
     // divide array 
-    public static void mergeSort(int[] a, int len) {
+    void mergeSort(int[] a, int len) {
         if (len < 2)
             return;
 
@@ -34,7 +34,7 @@ public class MergeSortTests {
 
     }
 
-    public static void merge(int[] a, int[] l, int[] r, int lLen, int rLen) {
+    void merge(int[] a, int[] l, int[] r, int lLen, int rLen) {
         int i = 0; // i index of l
         int j = 0; // j index of r
         int k = 0; // k index of a

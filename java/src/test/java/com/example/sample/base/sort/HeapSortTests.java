@@ -5,7 +5,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class HeapSortTests {
-    public void sort(int a[]) {
+    void sort(int a[]) {
         int len = a.length;
 
         // Build heap (rearrange array)
@@ -37,7 +37,7 @@ public class HeapSortTests {
      * r - index of right child node
      * largest - index of node which has largest value among p, l, r
      */
-    public void heapify(int a[], int len, int p) {
+    void heapify(int a[], int len, int p) {
         int largest = p; // Initialize largest_index as parent index
         int l = 2 * p + 1; // left = 2*p + 1
         int r = l + 1; // right = 2*p + 2
@@ -68,7 +68,7 @@ public class HeapSortTests {
     }
 
     /* A utility function to print array of size n */
-    static void printarray(int a[]) {
+    void printarray(int a[]) {
         int n = a.length;
         for (int i = 0; i < n; ++i)
             System.out.print(a[i] + " ");

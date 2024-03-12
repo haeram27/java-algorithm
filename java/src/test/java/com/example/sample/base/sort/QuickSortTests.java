@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class QuickSortTests {
-    public static void quickSort(int[] arr, int begin, int end) {
+    void quickSort(int[] arr, int begin, int end) {
         if (begin >= end)
             return;
 
@@ -15,7 +15,17 @@ public class QuickSortTests {
         quickSort(arr, partitionIndex + 1, end);
     }
 
-    private static int partition(int[] arr, int begin, int end) {
+    /**
+     * partition() make divide array as two part based on pivot value
+     * pivot value is standard reference value to divide values of array 
+     * ahead part includes less or equal than pivot value
+     * behind part includes greater than pivot value
+     * @param arr
+     * @param begin
+     * @param end
+     * @return i index of pivot
+     */
+    int partition(int[] arr, int begin, int end) {
         int pivot = arr[end];
         int i = (begin - 1);
         for (int j = begin; j < end; j++) {
@@ -27,7 +37,7 @@ public class QuickSortTests {
         return i;
     }
 
-    private static void swap(int[] arr, int i, int j) {
+    void swap(int[] arr, int i, int j) {
         int tmp = arr[i];
         arr[i] = arr[j];
         arr[j] = tmp;

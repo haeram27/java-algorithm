@@ -10,7 +10,7 @@ public class ArrayTests {
      * reverse one dimensional array
      *    1  2  3   >>>   3  2  1
      */
-    static void reverseArray(int[] array) {
+    void reverseArray(int[] array) {
         int len = array.length;
 
         // just swap item 0 with item n-1, 1 with n-2, ...
@@ -30,7 +30,7 @@ public class ArrayTests {
      *  rows  4  5  6   >>>   4  5  6
      *        7  8  9         1  2  3
      */
-    static void flipRows(int[][] matrix) {
+    void flipRows(int[][] matrix) {
         int rowLen = matrix.length;
         int colLen = matrix[0].length;
 
@@ -52,7 +52,7 @@ public class ArrayTests {
      *  rows  4  5  6   >>>   6  5  4
      *        7  8  9         9  8  7
      */
-    static void flipCols(int[][] matrix) {
+    void flipCols(int[][] matrix) {
         int rowLen = matrix.length;
         int colLen = matrix[0].length;
 
@@ -74,7 +74,7 @@ public class ArrayTests {
      *  rows  4  5  6   >>>   8  5  2
      *        7  8  9         9  6  3
      */
-    static int[][] clockwiseRotate(int[][] matrix) {
+    int[][] clockwiseRotate(int[][] matrix) {
         int len = matrix.length;
 
         int[][] rotated = new int[len][len];
@@ -95,7 +95,7 @@ public class ArrayTests {
      *  rows  4  5  6   >>>   2  5  8
      *        7  8  9         1  4  7
      */
-    static int[][] reverseClockwiseRotate(int[][] matrix) {
+    int[][] reverseClockwiseRotate(int[][] matrix) {
         int len = matrix.length;
 
         int[][] rotated = new int[len][len];
@@ -130,7 +130,6 @@ public class ArrayTests {
         System.out.println(Arrays.deepToString(clockwise));
         System.out.println(Arrays.deepToString(rclockwise));
 
-        System.out.println(
-                String.format("Process time: %d msec", System.currentTimeMillis() - start));
+        System.out.println(String.format("Process time: %d msec", System.currentTimeMillis() - start));
     }
 }
