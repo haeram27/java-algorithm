@@ -10,16 +10,19 @@ public class QuickSortTests {
         if (begin >= end)
             return;
 
-        int partitionIndex = partition(arr, begin, end);
-        quickSort(arr, begin, partitionIndex - 1);
-        quickSort(arr, partitionIndex + 1, end);
+        int partitionIndex = partition(arr, begin, end); // partitionIndex is pivot's index and is sorted position
+        quickSort(arr, begin, partitionIndex - 1); // no need to include partitonIndex
+        quickSort(arr, partitionIndex + 1, end); // no need to include partitonIndex
     }
 
     /**
-     * partition() make divide array as two part based on pivot value
-     * pivot value is standard reference value to divide values of array 
+     * partition() make divide array as two part based on pivot value and return pivot's index
+     * given array after partition() -> | less or equal than pivot | pivot | greater than pivot | 
+     * after partition() only pivot value will be placed at sorted position
+     * pivot value is standard reference value to divide values as two part of array
      * ahead part includes less or equal than pivot value
      * behind part includes greater than pivot value
+     * partition() returns sorted index of pivot so next partition() invoking should NOT include current pivot index
      * @param arr
      * @param begin
      * @param end
@@ -33,8 +36,8 @@ public class QuickSortTests {
                 swap(arr, j, ++i);
             }
         }
-        swap(arr, end, ++i);
-        return i;
+        swap(arr, end, ++i); // end is pivot's index, after the swap, pivot values will be placed at ++i index
+        return i; // resturn pivot's index
     }
 
     void swap(int[] arr, int i, int j) {
