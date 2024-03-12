@@ -32,6 +32,7 @@ public class WordGroupingTest {
         // TODO:
     }
 
+    @Test
     void answer() {
         Map<String, List<String>> m = new LinkedHashMap<>();
 
@@ -40,7 +41,7 @@ public class WordGroupingTest {
         //     System.out.println(st.nextToken());
         // }
 
-        String[] tokens = s2.split("[\\s]+");
+        String[] tokens = s1.split("[\\s]+");
         for (String t : tokens) {
             if (!t.isBlank()) {
                 char[] ar = t.toCharArray();
