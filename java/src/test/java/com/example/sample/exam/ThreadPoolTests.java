@@ -30,7 +30,7 @@ public class ThreadPoolTests {
         LinkedBlockingQueue(M): blocking, selectively unbounded queue. size is NOT limited by using list arch
         SynchronousQueue: blocking, 0 size queue. each insertion operation should wait remove operation of consumer thread.
         PriorityBlockingQueue: blocking,
-        DelayQueue: blocking,
+        DelayQueue: blocking, make a given delay before take() each element
     
         // Non-Blocking queue
         ConcurrentLinkedQueue(M): non-blocking, unbounded
