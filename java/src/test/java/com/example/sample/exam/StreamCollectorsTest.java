@@ -1,4 +1,4 @@
-package com.example.sample.base.ds;
+package com.example.sample.exam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,14 +12,16 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 @SpringBootTest
-public class CollectorsTest {
+public class StreamCollectorsTest {
 
     @Test
     public void toListTest() {
         String s1 = new String("final fnial fanil proxy pxory abyss");
+        String s2 = new String("final, fnial, fanil, proxy, pxory, abyss");
         var tokens = s1.split("\\s+");
+        var tokens2 = s2.split(",\\s+");
 
-        Stream.of(tokens).collect(
+        Stream.of(tokens2).collect(
         // @formatter:off
             Collectors.toList()
         // @formatter:on
@@ -36,10 +38,10 @@ public class CollectorsTest {
         Stream.of(tokens).collect(
         // @formatter:off
             Collectors.toMap(
-                Function.identity(),   // keyMapper : key 생성, Function.identity() == t->t
-                String::length,        // valueMapper : value 생성
-                (oldV, newV) -> newV,  // mergeFunction : map에 element추가 중 key 충돌시 value 지정 
-                LinkedHashMap::new     // mapFactory : default HashMap 타입이 아닌 다른 타입의 Map 생성자 호출
+                Function.identity(),   // keyMapper : key generation func, Function.identity() == t->t
+                String::length,        // valueMapper : value generation func
+                (oldV, newV) -> newV,  // mergeFunction : key collision resolver, return resoleved value between two value.
+                LinkedHashMap::new     // mapFactory : return map instance but not default type of HashMap
             )
         // @formatter:on
         ).forEach((k, v) -> {
@@ -68,7 +70,8 @@ public class CollectorsTest {
         Arrays.asList(a1).stream().collect(
         // @formatter:off
             Collectors.groupingBy(
-                // classifier == keyMapper, funtion to return map key for each unit of stream
+                // classifier == keyMapper, function to return map key for each unit of stream
+                //               and each unit of stream becomes value of map
                 str -> {
                     var ar = str.toCharArray();
                     Arrays.sort(ar);
