@@ -56,8 +56,8 @@ public class WordGroupingTest {
         }
 
         m.forEach((k, v) -> {
-            for (var s : v) {
-                System.out.print(s + " ");
+            for (var t : v) {
+                System.out.print(t + " ");
             }
             System.out.println();
         });
