@@ -8,13 +8,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class PermutationTests {
 
     // TODO: implement permutation() Under Here
-    public <T> void permutation(T[] data, T[] out, int r, int depth, boolean[] visited) {
-        // TODO:
-    }
+    <T> void permutation(T[] data, T[] out, int r, int depth, boolean[] visited) {}
 
     @Test
     public void run() {
         int r = 2;
+        // permutation = {a, b}, {a, c}, {a, d}, {b, a}, {b, c}, {b, d}, {c, a}, {c, b}, {c, d}, {d, a}, {d, b}, {d, c}
         String[] data = {"a", "b", "c", "d"}; // n = 4
         String[] out = new String[r];
         boolean[] visited = new boolean[data.length];
