@@ -21,11 +21,11 @@ public class ArrayAllSubSquareTests {
     private static Stream<Arguments> provideSquareLength() {
         // @formatter:off
         return Stream.of(
-            Arguments.of(2, 2),
-            Arguments.of(2, 3),
-            Arguments.of(3, 3),
-            Arguments.of(4, 4),
-            Arguments.of(4, 5));
+            Arguments.of(2, 2),  // 1
+            Arguments.of(2, 3),  // 2
+            Arguments.of(3, 3),  // 5
+            Arguments.of(4, 4),  // 14
+            Arguments.of(4, 5)); // 20
         // @formatter:on
     }
 
@@ -33,7 +33,6 @@ public class ArrayAllSubSquareTests {
     @MethodSource("provideSquareLength")
     void allSubSquare(int rowLen, int colLen) {
         int count = 0;
-
         System.out.println(count);
     }
 
@@ -55,8 +54,7 @@ public class ArrayAllSubSquareTests {
                     if (endX < rowLen && endY < colLen) {
                         ++count;
 
-                        System.out
-                                .println(String.format("%d %d %d %d", startX, startY, endX, endY));
+                        System.out.println(String.format("%d %d %d %d", startX, startY, endX, endY));
                     }
                 }
             }
