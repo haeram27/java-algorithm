@@ -21,6 +21,8 @@ public class StreamCollectorsTest {
         var tokens = s1.split("\\s+");
         var tokens2 = s2.split(",\\s+");
 
+        Arrays.sort(tokens2);
+
         Stream.of(tokens2).collect(
         // @formatter:off
             Collectors.toList()

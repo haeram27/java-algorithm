@@ -27,6 +27,7 @@ public class TreeTraversalTests {
     }
 
     // DFS == stack, preOrder, inOrder, postOrder
+    // use stack for this question
     void dfsTraversal(Node root) {
         // TODO:
     }
@@ -113,17 +114,17 @@ public class TreeTraversalTests {
         if (root == null)
             return;
 
-        Deque<Node> queue = new ArrayDeque<Node>();
-        queue.offer(root);
+        Deque<Node> q = new ArrayDeque<Node>();
 
-        while (!queue.isEmpty()) {
-            Node node = queue.poll();
+        q.offer(root);
+        while (!q.isEmpty()) {
+            Node node = q.poll();
             System.out.print(node.data + " ");
 
             if (node.left != null)
-                queue.offer(node.left);
+                q.offer(node.left);
             if (node.right != null)
-                queue.offer(node.right);
+                q.offer(node.right);
         }
     }
 
@@ -132,20 +133,18 @@ public class TreeTraversalTests {
             return;
 
         Deque<Node> q = new ArrayDeque<>();
-        q.add(root);
-
         Deque<Integer> stack = new ArrayDeque<>();
-
         Node node;
 
+        q.offer(root);
         while (!q.isEmpty()) {
             node = q.poll();
             stack.push(node.data);
 
             if (node.right != null)
-                q.add(node.right);
+                q.offer(node.right);
             if (node.left != null)
-                q.add(node.left);
+                q.offer(node.left);
         }
 
         // pop all nodes from the stack and print them
@@ -178,9 +177,9 @@ public class TreeTraversalTests {
 
         System.out.print(root.data + " ");
         if (root.left != null)
-            preOrderTraversal(root.left);
+            preOrderTraversal_a(root.left);
         if (root.right != null)
-            preOrderTraversal(root.right);
+            preOrderTraversal_a(root.right);
     }
 
     void inOrderTraversal_a(Node root) {
@@ -188,10 +187,10 @@ public class TreeTraversalTests {
             return;
 
         if (root.left != null)
-            inOrderTraversal(root.left);
+            inOrderTraversal_a(root.left);
         System.out.print(root.data + " ");
         if (root.right != null)
-            inOrderTraversal(root.right);
+            inOrderTraversal_a(root.right);
     }
 
     void postOrderTraversal_a(Node root) {
@@ -199,9 +198,9 @@ public class TreeTraversalTests {
             return;
 
         if (root.left != null)
-            postOrderTraversal(root.left);
+            postOrderTraversal_a(root.left);
         if (root.right != null)
-            postOrderTraversal(root.right);
+            postOrderTraversal_a(root.right);
         System.out.print(root.data + " ");
     }
 
@@ -210,19 +209,18 @@ public class TreeTraversalTests {
         if (root == null)
             return 0;
 
-        int lDepth = 0;
-        int rDepth = 0;
+        int l = 0, r = 0;
 
         // Leaf Node This state except leaf from count
         if (root.left == null && root.right == null)
             return 0;
 
         if (root.left != null)
-            lDepth = getMaxDepth(root.left);
+            l = getMaxDepth_a(root.left);
         if (root.right != null)
-            rDepth = getMaxDepth(root.right);
+            r = getMaxDepth_a(root.right);
 
-        return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
+        return (l > r) ? l + 1 : r + 1;
     }
 
     // max level of node (count leaf from 1)
@@ -230,45 +228,90 @@ public class TreeTraversalTests {
         if (root == null)
             return 0;
 
-        int lDepth = 0;
-        int rDepth = 0;
+        int l = 0, r = 0;
 
         // Leaf Node:: This accounts for height = 1.
         if (root.left == null && root.right == null)
             return 1;
 
         if (root.left != null)
-            lDepth = getMaxLevel(root.left);
+            l = getMaxLevel_a(root.left);
         if (root.right != null)
-            rDepth = getMaxLevel(root.right);
+            l = getMaxLevel_a(root.right);
 
-        return (lDepth > rDepth) ? lDepth + 1 : rDepth + 1;
+        return (l > r) ? l + 1 : r + 1;
     }
 
     //findLowestCommonAncester
-    Node findLCA_a(Node root, int n1, int n2) 
-    { 
+    Node findLCA_a(Node root, int n1, int n2) {
         // Base case 
-        if (root == null) 
-            return null; 
+        if (root == null)
+            return null;
 
         // If either n1 or n2 matches with root's key, report 
         // the presence by returning root (Note that if a key is 
         // ancestor of other, then the ancestor key becomes LCA 
-        if (root.data == n1 || root.data == n2) 
-            return root; 
+        if (root.data == n1 || root.data == n2)
+            return root;
 
         // Look for keys in left and right subtrees 
-        Node left_lca = findLCA(root.left, n1, n2);
-        Node right_lca = findLCA(root.right, n1, n2);
+        Node l = findLCA_a(root.left, n1, n2);
+        Node r = findLCA_a(root.right, n1, n2);
 
         // If both of the above calls return Non-NULL, then one key 
         // is present in once subtree and other is present in other, 
-        // So this node is the LCA 
-        if (left_lca != null && right_lca != null)
+        // So this node is r LCA 
+        if (l != null && r != null)
             return root;
 
         // Otherwise check if left subtree or right subtree is LCA 
-        return (left_lca != null) ? left_lca : right_lca; 
+        return (l != null) ? l : r;
+    }
+
+    @Test
+    public void run_a() {
+        // creating a binary tree and entering the nodes
+        Node root = new Node(1);
+        root.left = new Node(2);
+        root.right = new Node(3);
+        root.left.left = new Node(4);
+        root.left.right = new Node(5);
+        root.right.left = new Node(6);
+        root.right.right = new Node(7);
+
+        System.out.println("Level order: ");
+        levelOrderTraversal_a(root);
+        System.out.println();
+
+        System.out.println("Reverse Level order: ");
+        reverseLevelOrderTraversal_a(root);
+        System.out.println();
+
+        System.out.println("dfs order: ");
+        dfsTraversal_a(root);
+        System.out.println();
+
+        System.out.println("pre order: ");
+        preOrderTraversal_a(root);
+        System.out.println();
+
+        System.out.println("in order: ");
+        inOrderTraversal_a(root);
+        System.out.println();
+
+        System.out.println("post order: ");
+        postOrderTraversal_a(root);
+        System.out.println();
+
+        System.out.println("MaxDepth: ");
+        System.out.println(getMaxDepth_a(root));
+
+        System.out.println("MaxLevel: ");
+        System.out.println(getMaxLevel_a(root));
+
+        System.out.println("findLCA: ");
+        var lca = findLCA_a(root, 4, 5);
+        if (lca != null)
+            System.out.println(lca.data);
     }
 }
