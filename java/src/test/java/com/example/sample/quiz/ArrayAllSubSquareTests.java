@@ -15,8 +15,14 @@ public class ArrayAllSubSquareTests {
      * end coordinate is most right top point
      * 
      * key point:
-     *     endX == startX + off
-     *     endY == startY + off
+     * [s][ ][ ]
+     * [ ][e][ ]
+     * [ ][ ][e]
+     * s = start point(startY,startY) of square
+     * e = end points(endY,endY) of square when start point is s
+     *
+     *   endX == startX + off
+     *   endY == startY + off
      */
     private static Stream<Arguments> provideSquareLength() {
         // @formatter:off

@@ -1,4 +1,4 @@
-package com.example.sample.base.ds;
+package com.example.sample.quiz;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
