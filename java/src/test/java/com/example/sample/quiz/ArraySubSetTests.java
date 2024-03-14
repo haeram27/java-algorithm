@@ -11,7 +11,7 @@ public class ArraySubSetTests {
     /**
      * find all sub set index of given array length
      */
-    private static Stream<Arguments> provideSquareLength() {
+    private static Stream<Arguments> provideLength() {
         // @formatter:off
         return Stream.of(
             Arguments.of(3),
