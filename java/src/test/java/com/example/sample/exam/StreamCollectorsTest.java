@@ -19,7 +19,7 @@ public class StreamCollectorsTest {
     public void toListTest() {
         String s1 = new String("final fnial fanil proxy pxory abyss");
         var tokens1 = s1.split("\\s+");
-        Stream.of(tokens1).sorted(Collections.reverseOrder()).collect(
+        Stream.of(tokens1).sorted().collect(
         // @formatter:off
             Collectors.toList()
         // @formatter:on
