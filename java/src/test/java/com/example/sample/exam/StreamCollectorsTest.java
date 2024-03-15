@@ -2,6 +2,7 @@ package com.example.sample.exam;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.function.Function;
@@ -17,13 +18,18 @@ public class StreamCollectorsTest {
     @Test
     public void toListTest() {
         String s1 = new String("final fnial fanil proxy pxory abyss");
+        var tokens1 = s1.split("\\s+");
+        Stream.of(tokens1).sorted(Collections.reverseOrder()).collect(
+        // @formatter:off
+            Collectors.toList()
+        // @formatter:on
+        ).forEach(e -> {
+            System.out.println(e);
+        });
+
         String s2 = new String("final, fnial, fanil, proxy, pxory, abyss");
-        var tokens = s1.split("\\s+");
         var tokens2 = s2.split(",\\s+");
-
-        Arrays.sort(tokens2);
-
-        Stream.of(tokens2).collect(
+        Stream.of(tokens2).sorted(Collections.reverseOrder()).collect(
         // @formatter:off
             Collectors.toList()
         // @formatter:on
