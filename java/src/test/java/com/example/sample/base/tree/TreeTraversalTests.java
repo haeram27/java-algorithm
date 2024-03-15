@@ -209,16 +209,13 @@ public class TreeTraversalTests {
         if (root == null)
             return 0;
 
-        int l = 0, r = 0;
-
         // Leaf Node This state except leaf from count
         if (root.left == null && root.right == null)
             return 0;
 
-        if (root.left != null)
-            l = getMaxDepth_a(root.left);
-        if (root.right != null)
-            r = getMaxDepth_a(root.right);
+        int l, r;
+        l = getMaxDepth_a(root.left);
+        r = getMaxDepth_a(root.right);
 
         return (l > r) ? l + 1 : r + 1;
     }
@@ -228,16 +225,13 @@ public class TreeTraversalTests {
         if (root == null)
             return 0;
 
-        int l = 0, r = 0;
-
         // Leaf Node:: This accounts for height = 1.
         if (root.left == null && root.right == null)
             return 1;
 
-        if (root.left != null)
-            l = getMaxLevel_a(root.left);
-        if (root.right != null)
-            l = getMaxLevel_a(root.right);
+        int l, r;
+        l = getMaxLevel_a(root.left);
+        r = getMaxLevel_a(root.right);
 
         return (l > r) ? l + 1 : r + 1;
     }
@@ -279,7 +273,7 @@ public class TreeTraversalTests {
         root.right.left = new Node(6);
         root.right.right = new Node(7);
 
-        System.out.println("Level order: ");
+        System.out.println("Level order(bfs): ");
         levelOrderTraversal_a(root);
         System.out.println();
 
