@@ -106,15 +106,24 @@ https://www.geeksforgeeks.org/maximum-size-sub-matrix-with-all-1s-in-a-binary-ma
 2) Find the maximum entry in S[R][C]
 3) Using the value and coordinates of maximum entry in S[i], print sub-matrix of M[][]
 
+figure1. minimal square
 S[i-1][j-1] | S[i][j-1]
 ------------------------
 S[i-1][j]   | S[i][j]
 
+endxy position of minimal subsqure = S[i][j]
+non-endxy position of minimal subsqure = S[i][j-1], S[i-1][j], S[i-1][j-1]
+
+
 if S[i][j] > 0 then M[i][j] == 1
 if S[i][j] == N then min(S[i][j-1], S[i-1][j], S[i-1][j-1]) == N-1
-if S[i][j] == 1 then S[i][j-1], S[i-1][j], S[i-1][j-1] >= 0
-if S[i][j] == 2 then S[i][j-1], S[i-1][j], S[i-1][j-1] >= 1
+if S[i][j] == 1 then S[i][j-1], S[i-1][j], S[i-1][j-1] >= 0 
+              this means minimal square's one of non-endxy position member has 0
+if S[i][j] == 2 then S[i][j-1], S[i-1][j], S[i-1][j-1] >= 1 
+              this means minimal square's all non-endxy position has at least 1
 if S[i][j] == 3 then S[i][j-1], S[i-1][j], S[i-1][j-1] >= 2
+              this means minimal square's all non-endxy position has at least 2
+S[i][j] >= N (N>=2) means start-point::S[i-(N-1)][j-(N-1)] end-point::S[i][j] square fills 1
 
 given:
 M[][] = {{0, 1, 1, 0, 1},
@@ -136,6 +145,7 @@ void printMaxSubSquareA(matrix_t M) {
     uint rlen = M.size();
     uint clen = M[0].size();
     matrix_t S(rlen, vector<int>(clen));
+
 
     int r, c;
     int max, maxr, maxc;
