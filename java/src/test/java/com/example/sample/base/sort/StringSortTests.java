@@ -9,6 +9,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class StringSortTests {
+    String s = "abcdeghijklmn";
+    String s1 = "abcdeg hijklmn";
+
     @Test
     public void CodePointStreamSort() {
         String sorted;
@@ -26,11 +29,13 @@ public class StringSortTests {
     @Test
     public void StringStreamSort() {
         String sorted;
+        sorted = Stream.of(s.split("")).sorted().collect(Collectors.joining());
+        System.out.println(sorted);
+        sorted = Stream.of(s1.split("")).filter(e -> !e.isBlank()).sorted().collect(Collectors.joining());
+        System.out.println(sorted);
         sorted = Stream.of(s.split("")).sorted(Collections.reverseOrder()).collect(Collectors.joining());
         System.out.println(sorted);
     }
-
-    String s = "abcdeghijklmn";
 
     <T> void swap(int i, int j, T[] a) {
         T tmp = a[i];
