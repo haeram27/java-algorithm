@@ -7,6 +7,22 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class M_ArrayTests {
     /**
+    * # median between two integer
+    * mid = (lo+hi)/2
+    *
+    * # median for array index
+    * 
+    * ## median of entire index
+    * mid = array.length/2
+    * for(i=0; i<mid; i++)
+    * 
+    * ## median of index range
+    * mid = (lo+hi+1)/2
+    * for(i=lo; i<mid; i++)
+    */
+
+
+    /**
     * Quest:
     * copy single dimension array
     */

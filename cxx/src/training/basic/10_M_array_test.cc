@@ -2,7 +2,6 @@
 
 #include "gtest/gtest.h"
 
-
 namespace {
 
 /***** DO NOT REMOVE *****/
@@ -10,25 +9,24 @@ namespace {
 #define ENDTIME et.elapsed();
 using namespace std::chrono;
 class ElapsedTime {
-public:
+   public:
     ElapsedTime() { steadyclk_start = steady_clock::now(); }
     void elapsed() {
         steadyclk_end = steady_clock::now();
         std::cout << "[**********] Elapsed time: "
-            << duration_cast<microseconds>(steadyclk_end - steadyclk_start).count()
-            << " us.\n";
+                  << duration_cast<microseconds>(steadyclk_end - steadyclk_start).count()
+                  << " us.\n";
     }
 
-private:
+   private:
     steady_clock::time_point steadyclk_start;
     steady_clock::time_point steadyclk_end;
 };
 
-
 /***** GLOBAL UNIT CONTEXT UNDER HERE *****/
 
-class DTArrayTest: public ::testing::Test {
-protected:
+class DTArrayTest : public ::testing::Test {
+   protected:
     // You can remove any or all of the following functions if its body
     // is empty.
     DTArrayTest() {
@@ -52,17 +50,30 @@ protected:
     }
 };
 
-
 /***** TEST UNIT CONTEXT UNDER HERE *****/
 
 using namespace std;
 using matrix_t = vector<vector<int>>;
 
+/**
+ * # median between two integer
+ * mid = (lo+hi)/2
+ *
+ * # median for array index
+ *
+ * ## median of entire index
+ * mid = array.length/2
+ * for(i=0; i<mid; i++)
+ *
+ * ## median of index range
+ * mid = (lo+hi+1)/2
+ * for(i=lo; i<mid; i++)
+ */
 
 /**
  * reverse one dimensional ar
  *    1  2  3   >>>   3  2  1
- * 
+ *
  * array's last_index is array.length - 1
  * [index]'s antipode is [len-1-index] == [last_index-index]
  * (index<len/2) is efficient half point of array in loop
@@ -98,20 +109,20 @@ void rotateArrayD() {
     printv(rotateOneRoundRight);  // 1 2 3 4 5
 }
 
-TEST_F(DTArrayTest, run)
-{STARTTIME
+TEST_F(DTArrayTest, run) {
+    STARTTIME
 
-    auto printv = [](const auto& v){
-        for (const auto& e:v){
+    auto printv = [](const auto& v) {
+        for (const auto& e : v) {
             cout << e << " ";
         }
         cout << endl;
     };
 
-    auto print2dv = [](const auto& v){
-        for (const auto& row:v){
-            for (const auto& e:row){
-              cout << e << " ";
+    auto print2dv = [](const auto& v) {
+        for (const auto& row : v) {
+            for (const auto& e : row) {
+                cout << e << " ";
             }
             cout << endl;
         }
@@ -119,7 +130,7 @@ TEST_F(DTArrayTest, run)
     };
 
     cout << "\n************************************" << endl;
-    vector<int> a1= { 10, 20, 30, 40, 50 };
+    vector<int> a1 = {10, 20, 30, 40, 50};
     cout << "original array: =================" << endl;
     printv(a1);
     cout << "\nreversed array: =================" << endl;
@@ -129,14 +140,15 @@ TEST_F(DTArrayTest, run)
     cout << "\nrotate array: =================" << endl;
     rotateArrayD();
 
-ENDTIME}
+    ENDTIME
+}
 
 /***** SOLUTION UNDER HERE *****/
 
 /**
  * reverse one dimensional ar
  *    1  2  3   >>>   3  2  1
- * 
+ *
  * array's last_index is array.length - 1
  * [index]'s antipode is [len-1-index] == [last_index-index]
  * (index<len/2) is efficient half point of array in loop
@@ -145,8 +157,8 @@ void reverseArray(vector<int>& ar) {
     int len = ar.size();
 
     // just swap item index with item len-1-index until index<len/2
-    for (int i=0; i<len/2; i++) {
-        swap(ar[i], ar[len-1-i]);
+    for (int i = 0; i < len / 2; i++) {
+        swap(ar[i], ar[len - 1 - i]);
     }
 }
 
@@ -178,20 +190,20 @@ void rotateArray() {
     printv(rotateOneRoundRight);  // 1 2 3 4 5
 }
 
-TEST_F(DTArrayTest, runa)
-{STARTTIME
+TEST_F(DTArrayTest, runa) {
+    STARTTIME
 
-    auto printv = [](const auto& v){
-        for (const auto& e:v){
+    auto printv = [](const auto& v) {
+        for (const auto& e : v) {
             cout << e << " ";
         }
         cout << endl;
     };
 
-    auto print2dv = [](const auto& v){
-        for (const auto& row:v){
-            for (const auto& e:row){
-              cout << e << " ";
+    auto print2dv = [](const auto& v) {
+        for (const auto& row : v) {
+            for (const auto& e : row) {
+                cout << e << " ";
             }
             cout << endl;
         }
@@ -199,7 +211,7 @@ TEST_F(DTArrayTest, runa)
     };
 
     cout << "\n************************************" << endl;
-    vector<int> a1= { 10, 20, 30, 40, 50 };
+    vector<int> a1 = {10, 20, 30, 40, 50};
     cout << "original array: =================" << endl;
     printv(a1);
     cout << "\nreversed array: =================" << endl;
@@ -208,7 +220,7 @@ TEST_F(DTArrayTest, runa)
 
     rotateArray();
 
-ENDTIME}
+    ENDTIME
+}
 
-} ///namespace
-
+}  // namespace
