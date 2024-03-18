@@ -158,15 +158,15 @@ public class M_ArrayTests {
     }
 
     void flipRowsA(int[][] matrix) {
-        int rowLen = matrix.length;
-        int colLen = matrix[0].length;
+        int rlen = matrix.length;
+        int clen = matrix[0].length;
 
-        for (int row = 0; row < rowLen / 2; ++row) {
-            for (int col = 0; col < colLen; ++col) {
-                // swap: a[row][col] <-> a[row_max_index-row][col];
-                int temp = matrix[row][col];
-                matrix[row][col] = matrix[rowLen - 1 - row][col];
-                matrix[rowLen - 1 - row][col] = temp;
+        for (int r = 0; r < rlen / 2; ++r) {
+            for (int c = 0; c < clen; ++c) {
+                // swap(a[r][c], a[rlen-1-r][c]); (rlen-1) == last row index
+                int temp = matrix[r][c];
+                matrix[r][c] = matrix[rlen - 1 - r][c];
+                matrix[rlen - 1 - r][c] = temp;
             }
         }
     }
@@ -196,15 +196,15 @@ public class M_ArrayTests {
     }
 
     void flipColsA(int[][] matrix) {
-        int rowLen = matrix.length;
-        int colLen = matrix[0].length;
+        int rlen = matrix.length;
+        int clen = matrix[0].length;
 
-        for (int row = 0; row < rowLen; ++row) {
-            for (int col = 0; col < colLen / 2; ++col) {
-                // swap: a[row][col] <-> a[row][col_max_index-col];
-                int temp = matrix[row][col];
-                matrix[row][col] = matrix[row][colLen - 1 - col];
-                matrix[row][colLen - 1 - col] = temp;
+        for (int r = 0; r < rlen; ++r) {
+            for (int c = 0; c < clen / 2; ++c) {
+                // swap(a[r][c], a[r][clen-1-c]); (clen-1) == last column index
+                int temp = matrix[r][c];
+                matrix[r][c] = matrix[r][clen - 1 - c];
+                matrix[r][clen - 1 - c] = temp;
             }
         }
     }
@@ -218,6 +218,10 @@ public class M_ArrayTests {
      *        1  2  3         7  4  1    
      *  rows  4  5  6   >>>   8  5  2
      *        7  8  9         9  6  3
+     *
+     * !!! clockwise rotation is CR=(clockwise, row antipode)
+     * array's last_index is array.length - 1
+     * index i's antipode is [len-1-i] == [last_index-index]
      */
     int[][] clockwiseRotate(int[][] matrix) {
         // TODO:
@@ -241,11 +245,11 @@ public class M_ArrayTests {
         int len = matrix.length;
         int[][] rotated = new int[len][len];
 
-        for (int row = 0; row < len; ++row) {
-            for (int col = 0; col < len; ++col) {
+        for (int r = 0; r < len; ++r) {
+            for (int c = 0; c < len; ++c) {
                 // len-1-i == antipode of index i in array
-                rotated[col][len - 1 - row] = matrix[row][col];
-                // rotated[row][col] = matrix[len - 1 - col][row];
+                // clockwise rotation is CR=(clockwise, row antipode)
+                rotated[c][len - 1 - r] = matrix[r][c];
             }
         }
 
@@ -254,9 +258,9 @@ public class M_ArrayTests {
 
     /**
      * Quest: 
-     * clockwise rotate of NxN matrix(two-dimensional array) round times
+     * clockwise rotate of NxN matrix(two-dimensional array) with M times
      */
-    int[][] clockwiseRotateN(int[][] matrix, int round) {
+    int[][] clockwiseRotateN(int[][] matrix, int times) {
         // TODO:
 
         return new int[matrix.length][matrix[0].length];
@@ -273,7 +277,7 @@ public class M_ArrayTests {
         System.out.println(String.format("Process time: %d nsec", System.nanoTime() - start));
     }
 
-    int[][] clockwiseRotateNA(int[][] matrix, int round) {
+    int[][] clockwiseRotateNA(int[][] matrix, int times) {
         int len = matrix.length;
         int[][] source = new int[len][len];
         int[][] rotated = new int[len][len];
@@ -284,11 +288,12 @@ public class M_ArrayTests {
             }
         }
 
-        for (int r = 1; r <= round % 4; r++) {
-            for (int row = 0; row < len; ++row) {
-                for (int col = 0; col < len; ++col) {
+        // 4 times rotation is same with original square matrix
+        for (int t = 1; t <= times % 4; t++) {
+            for (int r = 0; r < len; ++r) {
+                for (int c = 0; c < len; ++c) {
                     // len-1-i == antipode of index i in array
-                    rotated[col][len - 1 - row] = source[row][col];
+                    rotated[c][len - 1 - r] = source[r][c];
                 }
             }
 
@@ -311,6 +316,10 @@ public class M_ArrayTests {
      *        1  2  3         3  6  9    
      *  rows  4  5  6   >>>   2  5  8
      *        7  8  9         1  4  7
+     * 
+     * !!! reverse clockwise rotation is RC=(reverse-clockwise, col antipode)
+     * array's last_index is array.length - 1
+     * index i's antipode is [len-1-i] == [last_index-index]
      */
     int[][] reverseClockwiseRotate(int[][] matrix) {
         // TODO:
@@ -323,7 +332,7 @@ public class M_ArrayTests {
         long start = System.nanoTime();
 
         int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
-        int[][] rclockwise = reverseClockwiseRotate(matrix);
+        int[][] rclockwise = reverseClockwiseRotateA(matrix);
         System.out.println(Arrays.deepToString(rclockwise));
 
         System.out.println(String.format("Process time: %d nsec", System.nanoTime() - start));
@@ -333,11 +342,11 @@ public class M_ArrayTests {
         int len = matrix.length;
         int[][] rotated = new int[len][len];
 
-        for (int row = 0; row < len; ++row) {
-            for (int col = 0; col < len; ++col) {
+        for (int r = 0; r < len; ++r) {
+            for (int c = 0; c < len; ++c) {
                 // len-1-i == antipode of index i in array
-                rotated[len - 1 - col][row] = matrix[row][col];
-                // rotated[row][col] = matrix[col][len - 1 - row];
+                // reverse clockwise rotation is RC=(reverse-clockwise, col antipode)
+                rotated[len - 1 - c][r] = matrix[r][c];
             }
         }
 
@@ -346,9 +355,9 @@ public class M_ArrayTests {
 
     /**
      * Quest: 
-     * reverse clockwise rotate of NxN matrix(two-dimensional array) round times
+     * reverse clockwise rotate of NxN matrix(two-dimensional array) with M times
      */
-    int[][] reverseClockwiseRotateN(int[][] matrix, int round) {
+    int[][] reverseClockwiseRotateN(int[][] matrix, int times) {
         // TODO:
 
         return new int[matrix.length][matrix[0].length];
@@ -365,7 +374,7 @@ public class M_ArrayTests {
         System.out.println(String.format("Process time: %d nsec", System.nanoTime() - start));
     }
 
-    int[][] reverseClockwiseRotateNA(int[][] matrix, int round) {
+    int[][] reverseClockwiseRotateNA(int[][] matrix, int times) {
         int len = matrix.length;
         int[][] source = new int[len][len];
         int[][] rotated = new int[len][len];
@@ -376,12 +385,13 @@ public class M_ArrayTests {
             }
         }
 
-        for (int r = 1; r <= round % 4; r++) {
-            for (int row = 0; row < len; ++row) {
-                for (int col = 0; col < len; ++col) {
+        // 4 times rotation is same with original square matrix
+        for (int t = 1; t <= times % 4; t++) {
+            for (int r = 0; r < len; ++r) {
+                for (int c = 0; c < len; ++c) {
                     // len-1-i == antipode of index i in array
-                    rotated[len - 1 - col][row] = source[row][col];
-                    // rotated[row][col] = matrix[col][len - 1 - row];
+                    // reverse clockwise rotation is RC=(reverse-clockwise, col antipode)
+                    rotated[len - 1 - c][r] = matrix[r][c];
                 }
             }
 

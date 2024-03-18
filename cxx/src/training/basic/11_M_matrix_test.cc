@@ -67,7 +67,7 @@ using matrix_t = vector<vector<int>>;
  *        7  8  9         1  2  3
  * 
  * array's last_index is array.length - 1
- * [index]'s antipode is [len-1-index] == [max_index-index]
+ * index i's antipode is [len-1-i] == [last_index-index]
  * (index<len/2) is efficient half point of array in loop
  */
 matrix_t flipRowsD(matrix_t matrix) {
@@ -83,7 +83,7 @@ matrix_t flipRowsD(matrix_t matrix) {
  *        7  8  9         9  8  7
  * 
  * array's last_index is array.length - 1
- * [index]'s antipode is [len-1-index] == [max_index-index]
+ * index i's antipode is [len-1-i] == [last_index-index]
  * (index<len/2) is efficient half point of array in loop
  */
 matrix_t flipColsD(matrix_t matrix) {
@@ -98,9 +98,9 @@ matrix_t flipColsD(matrix_t matrix) {
  *  rows  4  5  6   >>>   8  5  2
  *        7  8  9         9  6  3
  * 
+ * !!! clockwise rotation is CR=(clockwise, row antipode)
  * array's last_index is array.length - 1
- * [index]'s antipode is [len-1-index] == [max_index-index]
- * (index<len/2) is efficient half point of array in loop
+ * index i's antipode is [len-1-i] == [last_index-index]
  */
 matrix_t clockwiseRotateD(matrix_t square) {
     //return rotated;
@@ -114,9 +114,9 @@ matrix_t clockwiseRotateD(matrix_t square) {
  *  rows  4  5  6   >>>   2  5  8
  *        7  8  9         1  4  7
  * 
+ * !!! reverse clockwise rotation is RC=(reverse-clockwise, col antipode)
  * array's last_index is array.length - 1
- * [index]'s antipode is [len-1-index] == [max_index-index]
- * (index<len/2) is efficient half point of array in loop
+ * index i's antipode is [len-1-i] == [last_index-index]
  */
 matrix_t reverseClockwiseRotateD(matrix_t square) {
     //return rotated;
@@ -169,7 +169,7 @@ TEST_F(MatrixTest, run)
  *        7  8  9         1  2  3
  * 
  * array's last_index is array.length - 1
- * [index]'s antipode is [len-1-index] == [max_index-index]
+ * index i's antipode is [len-1-i] == [last_index-index]
  * (index<len/2) is efficient half point of array in loop
  */
 matrix_t flipRows(matrix_t matrix) {
@@ -194,7 +194,7 @@ matrix_t flipRows(matrix_t matrix) {
  *        7  8  9         9  8  7
  * 
  * array's last_index is array.length - 1
- * [index]'s antipode is [len-1-index] == [max_index-index]
+ * index i's antipode is [len-1-i] == [last_index-index]
  * (index<len/2) is efficient half point of array in loop
  */
 matrix_t flipCols(matrix_t matrix) {
@@ -219,13 +219,10 @@ matrix_t flipCols(matrix_t matrix) {
  *        7  8  9         9  6  3
  * 
  * how to:
- * step1. set square[r][c] to antipode position square[c][r]
- * step2. set (c)lockwise direction at (c)olumn of square[len-1-c][r]
- * final. rotated[r][c] = square[len-1-c][r];
+ * clockwise rotation is CR=(clockwise, row antipode)
  * 
  * array's last_index is array.length - 1
  * [index]'s antipode is [len-1-index] == [max_index-index]
- * (index<len/2) is efficient half point of array in loop
  */
 matrix_t clockwiseRotate(matrix_t square) {
     int len = square.size();
@@ -233,7 +230,7 @@ matrix_t clockwiseRotate(matrix_t square) {
     matrix_t rotated(len, vector<int>(len));
     for (int r=0; r<len; r++) {
         for (int c=0; c<len; c++) {
-            rotated[r][c] = square[len-1-c][r];
+            rotated[c][len-1-r] = square[r][c];
         }
     }
 
@@ -249,13 +246,10 @@ matrix_t clockwiseRotate(matrix_t square) {
  *        7  8  9         1  4  7
  * 
  * how to:
- * step1. set square[r][c] to antipode position square[c][r]
- * step2. set (r)everse clockwise direction at (r)ow of square[c][len-1-r]
- * final. rotated[r][c] = square[c][len-1-r];
+ * !!! reverse clockwise rotation is RC=(reverse-clockwise, col antipode)
  * 
  * array's last_index is array.length - 1
- * [index]'s antipode is [len-1-index] == [max_index-index]
- * (index<len/2) is efficient half point of array in loop
+ * index i's antipode is [len-1-i] == [last_index-index]
  */
 matrix_t reverseClockwiseRotate(matrix_t square) {
     int len = square.size();
@@ -263,7 +257,7 @@ matrix_t reverseClockwiseRotate(matrix_t square) {
     matrix_t rotated(len, vector<int>(len));
     for (int r=0; r<len; r++) {
         for (int c=0; c<len; c++) {
-            rotated[r][c] = square[c][len-1-r];
+            rotated[len-1-c][r] = square[r][c];
         }
     }
 
