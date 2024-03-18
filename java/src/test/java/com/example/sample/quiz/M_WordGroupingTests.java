@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
-public class M_WordGroupingTest {
+public class M_WordGroupingTests {
     /* 
         make group of token consist of same alphabets
         and print each group in each line
@@ -28,12 +28,12 @@ public class M_WordGroupingTest {
     String s2 = new String("fired gainly dreads listen silent fried");
 
     @Test
-    void run() {
+    void wordGroupingTest() {
         // TODO:
     }
 
     @Test
-    void answer() {
+    void wordGroupingTestA() {
         Map<String, List<String>> m = new LinkedHashMap<>();
 
         // StringTokenizer st = new StringTokenizer(s2);
