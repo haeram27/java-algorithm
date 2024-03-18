@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ArrayTests {
+public class M_ArrayTests {
     /**
     * Quest:
     * copy single dimension array

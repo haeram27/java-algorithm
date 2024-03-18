@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class TreeTraversalTests {
+public class M_TreeTraversalTests {
     /* Class to represent Tree node */
     class Node {
         int data;

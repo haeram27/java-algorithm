@@ -1,4 +1,4 @@
-package com.example.sample.quiz;
+package com.example.sample.base.ds;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ArraySubSetTests {
+public class M_ArraySubSetTests {
     /**
      * find all sub set index of given array length
      */
@@ -24,7 +24,7 @@ public class ArraySubSetTests {
 
     @ParameterizedTest
     @MethodSource("provideLength")
-    void allSubSet(int rowLen, int colLen) {
+    void allSubSet(int len) {
         int count = 0;
 
         System.out.println(count);
@@ -32,25 +32,16 @@ public class ArraySubSetTests {
 
     @ParameterizedTest
     @MethodSource("provideLength")
-    void allSubSet_answer(int rowLen, int colLen) {
+    void allSubSet_answer(int len) {
         int count = 0;
-        int maxOffset = Math.max(rowLen, colLen);
 
-        for (int row = 0; row < rowLen; ++row) {
-            for (int col = 0; col < colLen; ++col) {
-                for (int off = 1; off < maxOffset; off++) {
-
-                    int startX = row;
-                    int startY = col;
-                    int endX = row + off;
-                    int endY = col + off;
-
-                    if (endX < rowLen && endY < colLen) {
-                        ++count;
-
-                        System.out.println(String.format("%d %d %d %d", startX, startY, endX, endY));
-                    }
-                }
+        // [s, e) = {s <= x < e}
+        // s is opened(include) index
+        for (int s = 0; s < len; ++s) {
+            // e is closed(NOT include) index
+            for (int e = s + 1; e < len + 1; ++e) {
+                System.out.println(String.format("%d, %d", s, e));
+                count++;
             }
         }
 

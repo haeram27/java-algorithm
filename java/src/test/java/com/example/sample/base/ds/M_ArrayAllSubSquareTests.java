@@ -1,4 +1,4 @@
-package com.example.sample.quiz;
+package com.example.sample.base.ds;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -7,7 +7,7 @@ import org.junit.jupiter.params.provider.MethodSource;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class ArrayAllSubSquareTests {
+public class M_ArrayAllSubSquareTests {
     /**
      * find all sub square from given Rectangle(NxM) array
      * Square is NxN shape of Rectangle !!!

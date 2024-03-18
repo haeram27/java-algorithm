@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 
 @SpringBootTest
-public class DFSTests {
+public class M_DFSTests {
     class Graph {
         private int numberOfVertex;
         private List<List<Integer>> adj;

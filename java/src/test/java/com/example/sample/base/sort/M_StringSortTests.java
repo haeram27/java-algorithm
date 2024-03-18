@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class StringSortTests {
+public class M_StringSortTests {
     String s = "abcdeghijklmn";
     String s1 = "abcdeg hijklmn";
 

@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-public class BFSTests {
+public class M_BFSTests {
     /* directional graph class using adjacency list */
     class Graph {
         private int numberOfVertex;

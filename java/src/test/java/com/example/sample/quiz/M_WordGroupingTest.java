@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Test;
 
-public class WordGroupingTest {
+public class M_WordGroupingTest {
     /* 
         make group of token consist of same alphabets
         and print each group in each line
