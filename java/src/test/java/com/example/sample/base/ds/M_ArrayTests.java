@@ -117,7 +117,7 @@ public class M_ArrayTests {
      * reverse one dimensional array
      *    1  2  3   >>>   3  2  1
      */
-    void reverseArray(int[] array) {
+    void reverseArray(int[] a) {
         // TODO:
     }
 
@@ -166,7 +166,7 @@ public class M_ArrayTests {
      *  rows  4  5  6   >>>   4  5  6
      *        7  8  9         1  2  3
      */
-    void flipRows(int[][] matrix) {
+    void flipRows(int[][] m) {
         // TODO:
     }
 
@@ -204,7 +204,7 @@ public class M_ArrayTests {
      *  rows  4  5  6   >>>   6  5  4
      *        7  8  9         9  8  7
      */
-    void flipCols(int[][] matrix) {
+    void flipCols(int[][] m) {
         // TODO:
     }
 
@@ -247,10 +247,10 @@ public class M_ArrayTests {
      * array's last_index is array.length - 1
      * index i's antipode is [len-1-i] == [last_index-index]
      */
-    int[][] clockwiseRotate(int[][] matrix) {
+    int[][] clockwiseRotate(int[][] m) {
         // TODO:
 
-        return new int[matrix.length][matrix[0].length];
+        return new int[m.length][m[0].length];
     }
 
     @Test
@@ -284,10 +284,10 @@ public class M_ArrayTests {
      * Quest: 
      * clockwise rotate of NxN matrix(two-dimensional array) with M times
      */
-    int[][] clockwiseRotateN(int[][] matrix, int times) {
+    int[][] clockwiseRotateN(int[][] m, int times) {
         // TODO:
 
-        return new int[matrix.length][matrix[0].length];
+        return new int[m.length][m[0].length];
     }
 
     @Test
@@ -345,10 +345,10 @@ public class M_ArrayTests {
      * array's last_index is array.length - 1
      * index i's antipode is [len-1-i] == [last_index-index]
      */
-    int[][] reverseClockwiseRotate(int[][] matrix) {
+    int[][] reverseClockwiseRotate(int[][] m) {
         // TODO:
 
-        return new int[matrix.length][matrix[0].length];
+        return new int[m.length][m[0].length];
     }
 
     @Test
@@ -381,10 +381,10 @@ public class M_ArrayTests {
      * Quest: 
      * reverse clockwise rotate of NxN matrix(two-dimensional array) with M times
      */
-    int[][] reverseClockwiseRotateN(int[][] matrix, int times) {
+    int[][] reverseClockwiseRotateN(int[][] m, int times) {
         // TODO:
 
-        return new int[matrix.length][matrix[0].length];
+        return new int[m.length][m[0].length];
     }
 
     @Test
