@@ -30,9 +30,10 @@ public class M_ArraySubSetTests {
         System.out.println(count);
     }
 
+    /* Answer */
     @ParameterizedTest
     @MethodSource("provideLength")
-    void allSubSet_answer(int len) {
+    void allSubSetA(int len) {
         int count = 0;
 
         // [s, e) = {s <= x < e}

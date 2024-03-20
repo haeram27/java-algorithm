@@ -39,12 +39,13 @@ public class M_DFSTests {
         }
 
         /**
+         * Answer:
          * DFS traversal using Stack
          * @param s start vertex
          * @param n number of vertex
          * @param g graph
          */
-        void DFSTraversal_answer(int s, int n, List<List<Integer>> g) {
+        void DFSTraversalA(int s, int n, List<List<Integer>> g) {
             // visited : to check vertext is already comsumed(enqueue or enstack) or not
             boolean[] visited = new boolean[n];
             visited[s] = true;

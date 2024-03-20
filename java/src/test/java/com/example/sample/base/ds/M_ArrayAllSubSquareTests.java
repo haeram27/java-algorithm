@@ -42,9 +42,10 @@ public class M_ArrayAllSubSquareTests {
         System.out.println(count);
     }
 
+    /* Answer */
     @ParameterizedTest
     @MethodSource("provideSquareLength")
-    void allSubSquare_answer(int rowLen, int colLen) {
+    void allSubSquareA(int rowLen, int colLen) {
         int count = 0;
         int maxOffset = Math.max(rowLen, colLen);
 

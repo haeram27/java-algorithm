@@ -45,12 +45,13 @@ public class M_BFSTests {
         }
 
         /**
+         * Answer:
          * BFS traversal using Queue
          * @param s start vertex
          * @param n number of vertex
          * @param g graph
          */
-        void BFSTraversal_answer(int s, int n, List<List<Integer>> g) {
+        void BFSTraversalA(int s, int n, List<List<Integer>> g) {
             // visited : to check vertext is already comsumed(enqueue or enstack) or not
             boolean[] visited = new boolean[n];
             visited[s] = true;
