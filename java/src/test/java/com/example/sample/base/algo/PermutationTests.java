@@ -1,11 +1,18 @@
 package com.example.sample.base.algo;
 
 import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class PermutationTests {
+    <T> void printa(T[] a) {
+        for (var e : a) {
+            System.out.print(e + " ");
+        }
+        System.out.println();
+    }
 
     // TODO: implement permutation() Under Here
     <T> void permutation(T[] data, T[] out, int r, int depth, boolean[] visited) {}

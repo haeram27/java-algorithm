@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -19,8 +20,9 @@ public class M_EssentialTests {
     @Test
     public void CodePointStreamSort() {
         String sorted = "";
-        // TODO:
+        // TODO: map codepoint to each string > sort > join to one String
         // sorted = s.chars()...
+
         System.out.println(sorted);
     }
 
@@ -42,8 +44,9 @@ public class M_EssentialTests {
     @Test
     public void StringStreamSort() {
         String sorted = "";
-        // TODO:
+        // TODO: steam with split to each char String > sort > join to one String
         // sorted = Stream.of(s...)
+
         System.out.println(sorted);
     }
 
@@ -76,7 +79,7 @@ public class M_EssentialTests {
     @Test
     public void CharArrayDescendingSort() {
         var ar = s.toCharArray();
-        // TODO:
+        // TODO: use array swap
 
         System.out.println(new String(ar));
     }

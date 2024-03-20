@@ -6,6 +6,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 public class CombinationTests {
 
+    <T> void printa(T[] a) {
+        for (var e : a) {
+            System.out.print(e + " ");
+        }
+        System.out.println();
+    }
+
     // TODO: implement combination() Under Here
     <T> void combination(T[] data, T[] out, int r, int depth, int start) {}
 

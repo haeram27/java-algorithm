@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -64,7 +65,7 @@ public class StreamCollectorsTest {
      * making Map<K, List<V>>
      */
     @Test
-    public void groupingByTests() {
+    public void groupingByTest() {
         List<String> l1 = Arrays.asList("A", "B", "C", "D", "A");
         // Map<String, List<String>> m = l1.stream().collect(Collectors.groupingBy(Function.identity()))
         l1.stream().collect(Collectors.groupingBy(Function.identity())).forEach((k, v) -> {
