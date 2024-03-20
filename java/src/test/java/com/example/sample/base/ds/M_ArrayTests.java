@@ -159,11 +159,11 @@ public class M_ArrayTests {
 
     /**
      * Quest:
-     * flip row of matrix(two-dimensional array)
+     * flip row(with line --) of matrix(two-dimensional array)
      * exchange top and bottom rows
      *         cols
      *        1  2  3         7  8  9    
-     *  rows  4  5  6   >>>   4  5  6
+     *  rows [4][5][6]  >>>  [4][5][6]
      *        7  8  9         1  2  3
      */
     void flipRows(int[][] m) {
@@ -197,12 +197,12 @@ public class M_ArrayTests {
 
     /**
      * Quest:
-     * flip cols of NxM matrix(two-dimensional array)
+     * flip cols(with line |) of NxM matrix(two-dimensional array)
      * exchange left and right columns
      *         cols
-     *        1  2  3         3  2  1    
-     *  rows  4  5  6   >>>   6  5  4
-     *        7  8  9         9  8  7
+     *        1 [2] 3         3 [2] 1    
+     *  rows  4 [5] 6   >>>   6 [5] 4
+     *        7 [8] 9         9 [8] 7
      */
     void flipCols(int[][] m) {
         // TODO:
@@ -243,7 +243,7 @@ public class M_ArrayTests {
      *  rows  4  5  6   >>>   8  5  2
      *        7  8  9         9  6  3
      *
-     * !!! clockwise rotation is CR=(clockwise, row antipode)
+     * !!! clockwise rotation is CC=((c)lockwise, flip (c)ol of rotated)
      * array's last_index is array.length - 1
      * index i's antipode is [len-1-i] == [last_index-index]
      */
@@ -264,7 +264,24 @@ public class M_ArrayTests {
         System.out.println(String.format("Process time: %d nsec", System.nanoTime() - start));
     }
 
-
+    /**
+     * Howto:
+     * step 1. exchange index or r, c
+     *         rotated[c][r] = matrix[r][c]
+     *         this means flip matrix with line \
+     *         cols
+     *       [1] 2  3        [1] 4  7
+     *  rows  4 [5] 6   >>>   2 [5] 8
+     *        7  8 [9]        3  6 [9]
+     * 
+     * step 2. flip cols of rotated
+     *         rotated[c][len-1-r] = rotated[c][r]
+     *         this means flip matrix with line |
+     *         cols
+     *        1 [4] 7         7 [4] 1
+     *  rows  2 [5] 8   >>>   8 [5] 2
+     *        3 [6] 9         9 [6] 3
+     */
     int[][] clockwiseRotateA(int[][] matrix) {
         int len = matrix.length;
         int[][] rotated = new int[len][len];
@@ -341,7 +358,7 @@ public class M_ArrayTests {
      *  rows  4  5  6   >>>   2  5  8
      *        7  8  9         1  4  7
      * 
-     * !!! reverse clockwise rotation is RC=(reverse-clockwise, col antipode)
+     * !!! reverse clockwise rotation is RR=((r)everse-clockwise, flip (r)ow of rotated)
      * array's last_index is array.length - 1
      * index i's antipode is [len-1-i] == [last_index-index]
      */
@@ -362,6 +379,24 @@ public class M_ArrayTests {
         System.out.println(String.format("Process time: %d nsec", System.nanoTime() - start));
     }
 
+    /**
+    * Howto:
+    * step 1. exchange index or r, c
+    *         midproc[c][r] = matrix[r][c]
+    *         this means flip matrix with line \
+    *         cols
+    *       [1] 2  3        [1] 4  7
+    *  rows  4 [5] 6   >>>   2 [5] 8
+    *        7  8 [9]        3  6 [9]
+    * 
+    * step 2. flip rows of rotated
+    *         rotated[len-1-c][r] = midproc[c][r]
+    *         this means flip matrix with line --
+    *         cols
+    *        1  4  7         3  6  9
+    *  rows [2][5][8]  >>>  [2][5][8]
+    *        3  6  9         1  4  7
+    */
     int[][] reverseClockwiseRotateA(int[][] matrix) {
         int len = matrix.length;
         int[][] rotated = new int[len][len];
