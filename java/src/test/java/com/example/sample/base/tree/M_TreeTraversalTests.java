@@ -176,31 +176,25 @@ public class M_TreeTraversalTests {
             return;
 
         System.out.print(root.data + " ");
-        if (root.left != null)
-            preOrderTraversal_a(root.left);
-        if (root.right != null)
-            preOrderTraversal_a(root.right);
+        preOrderTraversal_a(root.left);
+        preOrderTraversal_a(root.right);
     }
 
     void inOrderTraversal_a(Node root) {
         if (root == null)
             return;
 
-        if (root.left != null)
-            inOrderTraversal_a(root.left);
+        inOrderTraversal_a(root.left);
         System.out.print(root.data + " ");
-        if (root.right != null)
-            inOrderTraversal_a(root.right);
+        inOrderTraversal_a(root.right);
     }
 
     void postOrderTraversal_a(Node root) {
         if (root == null)
             return;
 
-        if (root.left != null)
-            postOrderTraversal_a(root.left);
-        if (root.right != null)
-            postOrderTraversal_a(root.right);
+        postOrderTraversal_a(root.left);
+        postOrderTraversal_a(root.right);
         System.out.print(root.data + " ");
     }
 
@@ -213,9 +207,8 @@ public class M_TreeTraversalTests {
         if (root.left == null && root.right == null)
             return 0;
 
-        int l, r;
-        l = getMaxDepth_a(root.left);
-        r = getMaxDepth_a(root.right);
+        int l = getMaxDepth_a(root.left);
+        int r = getMaxDepth_a(root.right);
 
         return (l > r) ? l + 1 : r + 1;
     }
@@ -229,9 +222,8 @@ public class M_TreeTraversalTests {
         if (root.left == null && root.right == null)
             return 1;
 
-        int l, r;
-        l = getMaxLevel_a(root.left);
-        r = getMaxLevel_a(root.right);
+        int l = getMaxLevel_a(root.left);
+        int r = getMaxLevel_a(root.right);
 
         return (l > r) ? l + 1 : r + 1;
     }
