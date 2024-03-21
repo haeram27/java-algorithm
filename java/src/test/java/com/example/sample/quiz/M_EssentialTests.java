@@ -39,6 +39,18 @@ public class M_EssentialTests {
     }
 
     @Test
+    public void stringReverseTest() {
+        // TODO:
+        System.out.println(s);
+    }
+
+    @Test
+    public void stringReverseTestA() {
+        System.out.println(new StringBuilder(s).reverse());
+    }
+
+
+    @Test
     public void CodePointStreamSort() {
         String sorted = "";
         // TODO: map codepoint to each string > sort > join to one String
