@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -16,6 +15,28 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class M_EssentialTests {
     String s = "abcdeghijklmn";
     String s1 = "abcdeg hijklmn";
+
+    @Test
+    public void primitiveArrayDescSort() {
+        int a[] = {1, 2, 3, 4, 5};
+        var sorted = a;
+
+        // TODO:
+
+        System.out.println(Arrays.toString(sorted));
+    }
+
+    @Test
+    public void primitiveArrayDescSortA() {
+        int a[] = {1, 2, 3, 4, 5};
+        var sorted = a;
+
+        // boxed() = int -> Integer
+        // mapToInt() =  Integer -> int
+        sorted = Arrays.stream(a).boxed().sorted(Collections.reverseOrder()).mapToInt(Integer::intValue).toArray();
+
+        System.out.println(Arrays.toString(sorted));
+    }
 
     @Test
     public void CodePointStreamSort() {
