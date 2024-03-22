@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -18,7 +19,7 @@ public class M_EssentialTests {
 
     @Test
     public void primitiveArrayDescSort() {
-        int a[] = {1, 2, 3, 4, 5};
+        int a[] = { 1, 2, 3, 4, 5 };
         var sorted = a;
 
         // TODO:
@@ -28,7 +29,7 @@ public class M_EssentialTests {
 
     @Test
     public void primitiveArrayDescSortA() {
-        int a[] = {1, 2, 3, 4, 5};
+        int a[] = { 1, 2, 3, 4, 5 };
         var sorted = a;
 
         // boxed() = int -> Integer
@@ -48,7 +49,6 @@ public class M_EssentialTests {
     public void stringReverseTestA() {
         System.out.println(new StringBuilder(s).reverse());
     }
-
 
     @Test
     public void CodePointStreamSort() {

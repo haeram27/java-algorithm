@@ -3,8 +3,6 @@ package com.example.sample.base.ds;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-
-
 @SpringBootTest
 public class TrieTests {
     class TrieNode {
@@ -67,8 +65,8 @@ public class TrieTests {
     @Test
     public void run() {
         // Input keys (use only 'a' through 'z' and lower case)
-        String keys[] = {"this", "these", "there", "apple", "appoint"};
-        String output[] = {"Not present in trie", "Present in trie"};
+        String keys[] = { "this", "these", "there", "apple", "appoint" };
+        String output[] = { "Not present in trie", "Present in trie" };
 
         _root = new TrieNode();
 

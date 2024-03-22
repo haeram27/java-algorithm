@@ -12,6 +12,7 @@ import java.util.concurrent.RecursiveTask;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -55,7 +56,8 @@ public class ThreadPoolTests {
     Callable<String> task = () -> {
         long oneHundredMicroSeconds = 100_000;
         long startedAt = System.nanoTime();
-        while (System.nanoTime() - startedAt <= oneHundredMicroSeconds);
+        while (System.nanoTime() - startedAt <= oneHundredMicroSeconds) {
+        }
 
         return "Done";
     };

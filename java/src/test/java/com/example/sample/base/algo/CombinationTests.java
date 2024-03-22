@@ -14,13 +14,14 @@ public class CombinationTests {
     }
 
     // TODO: implement combination() Under Here
-    <T> void combination(T[] data, T[] out, int r, int depth, int start) {}
+    <T> void combination(T[] data, T[] out, int r, int depth, int start) {
+    }
 
     @Test
     public void run() {
         int r = 2;
         // combination = {{a, b}, {a,c}, {a,d}, {b,c}, {b,d}, {c,d}} 
-        String[] data = {"a", "b", "c", "d"}; // n = 4
+        String[] data = { "a", "b", "c", "d" }; // n = 4
         String[] out = new String[r];
 
         System.out.println("\n[combination recursive]===================");

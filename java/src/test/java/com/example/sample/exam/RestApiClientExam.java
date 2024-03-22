@@ -37,8 +37,7 @@ public class RestApiClientExam {
                 .header("Content-Type", "application/json").header("Accept", "application/json")
                 .version(HttpClient.Version.HTTP_1_1).build();
 
-        final HttpResponse<String> response =
-                client.send(request, HttpResponse.BodyHandlers.ofString());
+        final HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         final Map<String, Object> jsonObj;
         if (response.statusCode() != 200) {
@@ -77,8 +76,7 @@ public class RestApiClientExam {
                 .header("Content-Type", "application/json").header("Accept", "application/json")
                 .version(HttpClient.Version.HTTP_1_1).POST(bp).build();
 
-        final HttpResponse<String> response =
-                client.send(request, HttpResponse.BodyHandlers.ofString());
+        final HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 
         final Map<String, Object> jsonObj;
         if (response.statusCode() != 200) {

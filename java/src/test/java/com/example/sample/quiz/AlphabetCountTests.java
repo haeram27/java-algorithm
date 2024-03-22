@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Test;
 
 public class AlphabetCountTests {
@@ -40,5 +41,3 @@ public class AlphabetCountTests {
     }
 
 }
-
-

@@ -1,6 +1,7 @@
 package com.example.sample.base.sort;
 
 import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -31,7 +32,6 @@ public class MergeSortTests {
         // after divide recursively, merge l and r array
         merge(a, l, r, mid, len - mid);
 
-
     }
 
     void merge(int[] a, int[] l, int[] r, int lLen, int rLen) {
@@ -61,7 +61,7 @@ public class MergeSortTests {
 
     @Test
     public void run() {
-        int[] arr = {9, 5, 1, 0, 6, 2, 3, 4, 7, 8};
+        int[] arr = { 9, 5, 1, 0, 6, 2, 3, 4, 7, 8 };
         System.out.println("Before sorting");
         System.out.println(Arrays.toString(arr));
 

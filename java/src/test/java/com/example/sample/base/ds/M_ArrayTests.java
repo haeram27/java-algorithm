@@ -1,6 +1,7 @@
 package com.example.sample.base.ds;
 
 import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -21,7 +22,6 @@ public class M_ArrayTests {
     * for(i=lo; i<mid; i++)
     */
 
-
     /**
     * Quest:
     * copy single dimension array
@@ -35,7 +35,7 @@ public class M_ArrayTests {
     public void arrayCopyTest() {
         long start = System.nanoTime();
 
-        int[] a = {1, 2, 3, 4, 5};
+        int[] a = { 1, 2, 3, 4, 5 };
         var b = arrayCopy(a);
         System.out.println(Arrays.toString(b));
         System.out.println(a);
@@ -58,7 +58,6 @@ public class M_ArrayTests {
         return b;
     }
 
-
     /**
     * Quest:
     * deep copy matrix(multi dimension array)
@@ -72,7 +71,7 @@ public class M_ArrayTests {
     public void matrixDeepCopyTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
         var copy = matrixDeepCopy(matrix);
 
         System.out.println(Arrays.deepToString(copy));
@@ -95,7 +94,6 @@ public class M_ArrayTests {
         // shallow copy
         // Arrays.copyOf() only copy 1st dimension(row)
         var shallow = Arrays.copyOf(a, a.length);
-
 
         // deep copy
         var deepA = new int[rlen][clen];
@@ -125,7 +123,7 @@ public class M_ArrayTests {
     public void reverseArrayTest() {
         long start = System.nanoTime();
 
-        int[] a = {10, 20, 30, 40, 50};
+        int[] a = { 10, 20, 30, 40, 50 };
         reverseArray(a);
         System.out.println(Arrays.toString(a));
 
@@ -174,7 +172,7 @@ public class M_ArrayTests {
     public void flipRowsTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         flipRows(matrix);
         System.out.println(Arrays.deepToString(matrix));
 
@@ -212,7 +210,7 @@ public class M_ArrayTests {
     public void flipColsTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         flipCols(matrix);
         System.out.println(Arrays.deepToString(matrix));
 
@@ -232,7 +230,6 @@ public class M_ArrayTests {
             }
         }
     }
-
 
     /**
      * Quest:
@@ -257,7 +254,7 @@ public class M_ArrayTests {
     public void clockwiseRotateTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] clockwise = clockwiseRotate(matrix);
         System.out.println(Arrays.deepToString(clockwise));
 
@@ -311,7 +308,7 @@ public class M_ArrayTests {
     public void clockwiseRotateNTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] clockwise = clockwiseRotateNA(matrix, 3);
         System.out.println(Arrays.deepToString(clockwise));
 
@@ -348,7 +345,6 @@ public class M_ArrayTests {
         return rotated;
     }
 
-
     /**
      * Quest:
      * reverse-clockwise rotate of NxN matrix(two-dimensional array)
@@ -372,7 +368,7 @@ public class M_ArrayTests {
     public void reverseClockwiseRotateTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] rclockwise = reverseClockwiseRotateA(matrix);
         System.out.println(Arrays.deepToString(rclockwise));
 
@@ -426,7 +422,7 @@ public class M_ArrayTests {
     public void reverseClockwiseRotateNTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] clockwise = reverseClockwiseRotateN(matrix, 3);
         System.out.println(Arrays.deepToString(clockwise));
 

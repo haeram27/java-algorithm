@@ -3,10 +3,9 @@ package com.example.sample.base.graph;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-
 
 @SpringBootTest
 public class DFSRecursiveTests {
@@ -71,7 +70,6 @@ public class DFSRecursiveTests {
         g.addEdge(4, 0);
         g.addEdge(4, 2);
         g.addEdge(4, 3);
-
 
         g.DFS(2);
         System.out.println();

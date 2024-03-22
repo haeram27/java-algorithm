@@ -1,6 +1,7 @@
 package com.example.sample.base.sort;
 
 import java.util.Arrays;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -48,7 +49,7 @@ public class QuickSortTests {
 
     @Test
     public void run() {
-        int[] arr = {9, 5, 1, 0, 6, 2, 3, 4, 7, 8};
+        int[] arr = { 9, 5, 1, 0, 6, 2, 3, 4, 7, 8 };
         System.out.println("Before sorting");
         System.out.println(Arrays.toString(arr));
 

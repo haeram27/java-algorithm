@@ -51,7 +51,7 @@ public class SimpleSortTests {
     @Test
     public void run() {
         // TODO Auto-generated method stub
-        int a[] = {68, 32, 31, 26, 14, 9, 7, 2};
+        int a[] = { 68, 32, 31, 26, 14, 9, 7, 2 };
 
         selectionSort(a.clone());
         bubbleSort(a.clone());
