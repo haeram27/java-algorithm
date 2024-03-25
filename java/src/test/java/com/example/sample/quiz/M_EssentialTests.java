@@ -138,8 +138,9 @@ public class M_EssentialTests {
         m.put("c", Stream.of(7, 8, 9).collect(Collectors.toList()));
 
         // TODO: start
-        // use new ArrayList
+        // use new ArrayList(Collection), Set -> List
         var list1 = new ArrayList<Map.Entry<String, List<Integer>>>();
+
         // use Map.entrySet().stream()
         var list2 = new ArrayList<Map.Entry<String, List<Integer>>>();
         // TODO: end
