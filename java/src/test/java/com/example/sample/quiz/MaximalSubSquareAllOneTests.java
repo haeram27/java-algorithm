@@ -1,7 +1,6 @@
 package com.example.sample.quiz;
 
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -10,18 +9,41 @@ public class MaximalSubSquareAllOneTests {
 
     void printMaxSubSquareTest(int[][] m) {
         // TODO under here
+        int rlen = 0; // TODO
+        int clen = 0; // TODO
+        int[][] s = new int[rlen][clen];
+        int max = 0, maxr = 0, maxc = 0;
+        int r, c;
 
-        /* Set first column of S[][] */
+        // TODO:: Set first column of S[][]
 
-        /* Set first row of S[][] */
+        // TODO:: Set first row of S[][]
 
-        /* Construct other entries of S[][] */
+        // TODO:: Construct other entries of S[][]
 
-        /* Find the maximum entry, and indexes of maximum entry in S[][] */
+        // TODO:: Find the maximum entry, and indexes of maximum entry in s[][]
         // 3 4 3
-        // cout << max << " " << maxr << " " << maxc << " " << endl;
+        /* Print maximum entry in s[][] */
+        System.out.println(String.format("max: %d, maxr: %d, maxc: %d", max, maxr, maxc));
+        System.out.println();
 
         /* Print result */
+        for (r = 0; r < rlen; r++) {
+            for (c = 0; c < clen; c++) {
+                System.out.print(s[r][c] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        // TODO:: Print maximal sub-matrix in M of all 1
+        // for (r ...) {
+        //     for (c ...) {
+        //         System.out.print(s[r][c] + " ");
+        //     }
+        //     System.out.println();
+        // }
+        System.out.println();
 
     }
 
@@ -117,8 +139,8 @@ public class MaximalSubSquareAllOneTests {
                 if (M[r][c] == 0) {
                     S[r][c] = 0;
                 } else {
-                    S[r][c] = Stream.of(S[r][c - 1], S[r - 1][c], S[r - 1][c - 1]).min((o1, o2) -> o1 - o2).orElse(0)
-                            + 1;
+                    S[r][c] =
+                            Stream.of(S[r][c - 1], S[r - 1][c], S[r - 1][c - 1]).min((o1, o2) -> o1 - o2).orElse(0) + 1;
 
                     if (S[r][c] > max) {
                         max = S[r][c];
