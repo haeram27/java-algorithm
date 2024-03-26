@@ -125,38 +125,38 @@ public class M_EssentialTests {
 
     @Test
     public void CharArrayAscendingSort() {
-        var ar = s.toCharArray();
+        var a = s.toCharArray();
         // TODO:
 
-        System.out.println(new String(ar));
+        System.out.println(new String(a));
     }
 
     @Test
     public void CharArrayAscendingSortA() {
-        var ar = s.toCharArray();
-        Arrays.sort(ar);
-        System.out.println(new String(ar));
+        var a = s.toCharArray();
+        Arrays.sort(a);
+        System.out.println(new String(a));
     }
 
     @Test
     public void CharArrayDescendingSort() {
-        var ar = s.toCharArray();
+        var a = s.toCharArray();
         // TODO: use array swap
 
-        System.out.println(new String(ar));
+        System.out.println(new String(a));
     }
 
     @Test
     public void CharArrayDescendingSortA() {
-        var ar = s.toCharArray();
-        Arrays.sort(ar);
-        for (int i = 0, j = ar.length - 1; i < j; i++, j--) {
-            char tmp = ar[i];
-            ar[i] = ar[j];
-            ar[j] = tmp;
+        var a = s.toCharArray();
+        Arrays.sort(a);
+        for (int i = 0, j = a.length - 1; i < j; i++, j--) {
+            char tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
         }
 
-        System.out.println(new String(ar));
+        System.out.println(new String(a));
     }
 
     @Test

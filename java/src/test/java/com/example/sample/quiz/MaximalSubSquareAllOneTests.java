@@ -1,23 +1,21 @@
 package com.example.sample.quiz;
 
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 public class MaximalSubSquareAllOneTests {
 
-    void printMaxSubSquareTest(int[][] M) {
+    void printMaxSubSquareTest(int[][] m) {
         // TODO under here
 
         /* Set first column of S[][] */
 
-
         /* Set first row of S[][] */
 
-
         /* Construct other entries of S[][] */
-
 
         /* Find the maximum entry, and indexes of maximum entry in S[][] */
         // 3 4 3
@@ -30,7 +28,7 @@ public class MaximalSubSquareAllOneTests {
     /* Driver code */
     @Test
     void run() {
-        int[][] M = {
+        int[][] m = {
             // @formatter:off
             {0, 1, 1, 0, 1},
             {1, 1, 0, 1, 0},
@@ -41,9 +39,8 @@ public class MaximalSubSquareAllOneTests {
             // @formatter:on
         };
 
-        printMaxSubSquareTest(M);
+        printMaxSubSquareTest(m);
     }
-
 
     /**
     Solution:
@@ -100,7 +97,6 @@ public class MaximalSubSquareAllOneTests {
 
         int[][] S = new int[rlen][clen];
 
-
         int r = 0, c = 0;
         int max = 0, maxr = 0, maxc = 0;
 
@@ -121,8 +117,8 @@ public class MaximalSubSquareAllOneTests {
                 if (M[r][c] == 0) {
                     S[r][c] = 0;
                 } else {
-                    S[r][c] =
-                            Stream.of(S[r][c - 1], S[r - 1][c], S[r - 1][c - 1]).min((o1, o2) -> o1 - o2).orElse(0) + 1;
+                    S[r][c] = Stream.of(S[r][c - 1], S[r - 1][c], S[r - 1][c - 1]).min((o1, o2) -> o1 - o2).orElse(0)
+                            + 1;
 
                     if (S[r][c] > max) {
                         max = S[r][c];
@@ -156,7 +152,6 @@ public class MaximalSubSquareAllOneTests {
         System.out.println();
     }
 
-
     /* Driver code */
     @Test
     void runAnswer() {
@@ -174,6 +169,5 @@ public class MaximalSubSquareAllOneTests {
 
         printMaxSubSquareTestA(M);
     }
-
 
 }
