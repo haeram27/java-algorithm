@@ -18,6 +18,35 @@ public class M_EssentialTests {
     String s1 = "abcdeg hijklmn";
 
     @Test
+    public void getMaxTest() {
+        int a[] = { 1, 2, 3, 4, 5 };
+
+        Integer A = 1;
+        Integer B = 2;
+        Integer C = 3;
+
+        // TODO:
+        // print max of a[]
+        System.out.println();
+
+        // print max among A, B, C
+        System.out.println();
+    }
+
+    @Test
+    public void getMaxTestA() {
+        int a[] = { 1, 2, 3, 4, 5 };
+
+        Integer A = 1;
+        Integer B = 2;
+        Integer C = 3;
+
+        // TODO:
+        System.out.println(Arrays.stream(a).max().orElse(0));
+        System.out.println(Stream.of(A, B, C).min(Integer::compareTo).orElse(0));
+    }
+
+    @Test
     public void primitiveArrayDescSort() {
         int a[] = { 1, 2, 3, 4, 5 };
         var sorted = a;
