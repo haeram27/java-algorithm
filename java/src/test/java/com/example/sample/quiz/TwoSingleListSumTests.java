@@ -83,44 +83,26 @@ public class TwoSingleListSumTests {
 
     Node nodeSumTestA(Node l1, Node l2) {
         // ANSWER:
-        Node head = null, last = null;
-        int q = 0; // quotient
+        Node dummyHead = new Node(0);
+        Node curr = dummyHead;
+        int carry = 0;
 
-        while (l1 != null || l2 != null) {
-            int v1 = 0, v2 = 0;
-            if (l1 == null) {
-                v1 = 0;
-            } else {
-                v1 = l1.data;
-            }
+        while (l1 != null || l2 != null || carry != 0) {
+            int x = (l1 != null) ? l1.data : 0;
+            int y = (l2 != null) ? l2.data : 0;
+            int sum = carry + x + y;
 
-            if (l2 == null) {
-                v2 = 0;
-            } else {
-                v2 = l2.data;
-            }
+            carry = sum / 10;
+            curr.next = new Node(sum % 10);
+            curr = curr.next;
 
-            int v = v1 + v2 + q;
-            q = v / 10;
-            int r = v % 10;
-
-            if (head == null) {
-                head = new Node(r);
-                last = head;
-            } else {
-                last.next = new Node(r);
-                last = last.next;
-            }
-
-            if (l1 != null) {
+            if (l1 != null)
                 l1 = l1.next;
-            }
-
-            if (l2 != null) {
+            if (l2 != null)
                 l2 = l2.next;
-            }
         }
-        return head;
+
+        return dummyHead.next;
     }
 
     @Test
