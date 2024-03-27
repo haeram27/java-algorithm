@@ -27,9 +27,9 @@ public class TwoSingleListSumTests {
 
     Node nodeSumTest(Node l1, Node l2) {
         // TODO:
-        Node head = null;
+        Node dummy = null;
 
-        return head;
+        return dummy.next;
     }
 
     @Test
@@ -68,27 +68,27 @@ public class TwoSingleListSumTests {
         // Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
         // Output: [8,9,9,9,0,0,0,1]
 
-        var dummyHead = new Node(9);
-        dummyHead.next = new Node(9);
-        a = dummyHead.next;
+        var dummy = new Node(9);
+        dummy.next = new Node(9);
+        a = dummy.next;
         for (int i = 0; i < 6; i++) {
             a.next = new Node(9);
             a = a.next;
         }
-        l1 = dummyHead.next;
-        dummyHead = null;
+        l1 = dummy.next;
+        dummy = null;
         printNode(l1);
 
-        dummyHead = new Node(9);
-        dummyHead.next = new Node(9);
-        a = dummyHead.next;
+        dummy = new Node(9);
+        dummy.next = new Node(9);
+        a = dummy.next;
         for (int i = 0; i < 3; i++) {
             a.next = new Node(9);
             a = a.next;
         }
-        l2 = dummyHead.next;
-        dummyHead.next = null;
-        dummyHead = null;
+        l2 = dummy.next;
+        dummy.next = null;
+        dummy = null;
         printNode(l2);
 
         Node n = nodeSumTestA(l1, l2);
@@ -97,18 +97,17 @@ public class TwoSingleListSumTests {
 
     Node nodeSumTestA(Node l1, Node l2) {
         // ANSWER:
-        Node dummyHead = new Node(0);
-        Node curr = dummyHead;
-        int carry = 0;
+        Node dummy = new Node(0), last = dummy;
+        int c = 0; //carry
 
-        while (l1 != null || l2 != null || carry > 0) {
-            int x = (l1 != null) ? l1.data : 0;
-            int y = (l2 != null) ? l2.data : 0;
-            int sum = carry + x + y;
+        while (l1 != null || l2 != null || c > 0) {
+            int v1 = (l1 == null) ? 0 : l1.data;
+            int v2 = (l2 == null) ? 0 : l2.data;
 
-            carry = sum / 10;
-            curr.next = new Node(sum % 10);
-            curr = curr.next;
+            int v = v1 + v2 + c;
+            c = v / 10;
+            last.next = new Node(v % 10);
+            last = last.next;
 
             if (l1 != null)
                 l1 = l1.next;
@@ -116,7 +115,7 @@ public class TwoSingleListSumTests {
                 l2 = l2.next;
         }
 
-        return dummyHead.next;
+        return dummy.next;
     }
 
     @Test
@@ -155,27 +154,27 @@ public class TwoSingleListSumTests {
         // Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
         // Output: [8,9,9,9,0,0,0,1]
 
-        var dummyHead = new Node(9);
-        dummyHead.next = new Node(9);
-        a = dummyHead.next;
+        var dummy = new Node(9);
+        dummy.next = new Node(9);
+        a = dummy.next;
         for (int i = 0; i < 6; i++) {
             a.next = new Node(9);
             a = a.next;
         }
-        l1 = dummyHead.next;
-        dummyHead = null;
+        l1 = dummy.next;
+        dummy = null;
         printNode(l1);
 
-        dummyHead = new Node(9);
-        dummyHead.next = new Node(9);
-        a = dummyHead.next;
+        dummy = new Node(9);
+        dummy.next = new Node(9);
+        a = dummy.next;
         for (int i = 0; i < 3; i++) {
             a.next = new Node(9);
             a = a.next;
         }
-        l2 = dummyHead.next;
-        dummyHead.next = null;
-        dummyHead = null;
+        l2 = dummy.next;
+        dummy.next = null;
+        dummy = null;
         printNode(l2);
 
         Node n = nodeSumTestA(l1, l2);
