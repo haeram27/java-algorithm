@@ -1,9 +1,7 @@
 package com.example.sample.base.ds;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class TrieTests {
     class TrieNode {
         // Alphabet size (# of symbols)

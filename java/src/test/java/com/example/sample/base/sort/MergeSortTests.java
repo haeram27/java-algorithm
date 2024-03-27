@@ -3,9 +3,7 @@ package com.example.sample.base.sort;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class MergeSortTests {
 
     // divide array 

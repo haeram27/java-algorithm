@@ -1,9 +1,7 @@
 package com.example.sample.base.sort;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class HeapSortTests {
     void sort(int a[]) {
         int len = a.length;

@@ -1,9 +1,7 @@
 package com.example.sample.base.sort;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class SimpleSortTests {
     void selectionSort(int a[]) {
         for (int i = 0; i < a.length - 1; ++i) {

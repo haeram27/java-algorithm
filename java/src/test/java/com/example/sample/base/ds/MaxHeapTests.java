@@ -1,9 +1,7 @@
 package com.example.sample.base.ds;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class MaxHeapTests {
     /**
      * array for heap data structure At this example, heap data is stored from index 0

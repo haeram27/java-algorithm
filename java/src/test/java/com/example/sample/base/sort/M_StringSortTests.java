@@ -6,9 +6,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class M_StringSortTests {
     String s = "abcdeghijklmn";
     String s1 = "abcdeg hijklmn";

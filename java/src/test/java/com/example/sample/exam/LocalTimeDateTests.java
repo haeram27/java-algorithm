@@ -7,11 +7,9 @@ import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
 import com.example.sample.EvaluatedTimeTests;
 
-@SpringBootTest
 public class LocalTimeDateTests extends EvaluatedTimeTests {
 
     @Test

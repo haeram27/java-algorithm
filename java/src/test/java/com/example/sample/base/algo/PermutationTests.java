@@ -3,9 +3,7 @@ package com.example.sample.base.algo;
 import java.util.Arrays;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class PermutationTests {
     <T> void printa(T[] a) {
         for (var e : a) {

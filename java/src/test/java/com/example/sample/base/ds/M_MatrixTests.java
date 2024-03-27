@@ -2,13 +2,12 @@ package com.example.sample.base.ds;
 
 import java.util.Arrays;
 import java.util.stream.Stream;
+
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class M_MatrixTests {
     /**
     * # median between two integer
@@ -103,7 +102,7 @@ public class M_MatrixTests {
     public void matrixDeepCopyTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}, {10, 11, 12}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 }, { 10, 11, 12 } };
         var copy = matrixDeepCopy(matrix);
 
         System.out.println(Arrays.deepToString(copy));
@@ -159,7 +158,7 @@ public class M_MatrixTests {
     public void flipRowsTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         flipRows(matrix);
         System.out.println(Arrays.deepToString(matrix));
 
@@ -197,7 +196,7 @@ public class M_MatrixTests {
     public void flipColsTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         flipCols(matrix);
         System.out.println(Arrays.deepToString(matrix));
 
@@ -241,7 +240,7 @@ public class M_MatrixTests {
     public void clockwiseRotateTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] clockwise = clockwiseRotate(matrix);
         System.out.println(Arrays.deepToString(clockwise));
 
@@ -295,7 +294,7 @@ public class M_MatrixTests {
     public void clockwiseRotateNTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] clockwise = clockwiseRotateNA(matrix, 3);
         System.out.println(Arrays.deepToString(clockwise));
 
@@ -355,7 +354,7 @@ public class M_MatrixTests {
     public void reverseClockwiseRotateTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] rclockwise = reverseClockwiseRotateA(matrix);
         System.out.println(Arrays.deepToString(rclockwise));
 
@@ -409,7 +408,7 @@ public class M_MatrixTests {
     public void reverseClockwiseRotateNTest() {
         long start = System.nanoTime();
 
-        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
         int[][] clockwise = reverseClockwiseRotateN(matrix, 3);
         System.out.println(Arrays.deepToString(clockwise));
 

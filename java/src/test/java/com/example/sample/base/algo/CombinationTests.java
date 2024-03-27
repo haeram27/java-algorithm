@@ -1,9 +1,7 @@
 package com.example.sample.base.algo;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class CombinationTests {
 
     <T> void printa(T[] a) {

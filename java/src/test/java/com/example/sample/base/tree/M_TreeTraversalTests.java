@@ -2,10 +2,9 @@ package com.example.sample.base.tree;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+import org.junit.jupiter.api.Test;
+
 public class M_TreeTraversalTests {
     /* Class to represent Tree node */
     class Node {

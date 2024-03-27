@@ -3,9 +3,7 @@ package com.example.sample.exam;
 import java.util.Optional;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 public class OptionalTests {
     @Test
     public void run() {
