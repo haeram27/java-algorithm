@@ -15,6 +15,7 @@ class Node {
 }
 
 public class TwoSingleListSumTests {
+    // https://leetcode.com/problems/add-two-numbers/description/
 
     void printNode(Node n) {
         while (n != null) {
@@ -36,17 +37,20 @@ public class TwoSingleListSumTests {
         Node a, b, c;
         Node l1, l2;
 
-        a = new Node(1);
-        b = new Node(2);
+        // Input: l1 = [2, 4, 3], l2 = [5, 6, 4]
+        // Output: [7, 0, 8]
+
+        a = new Node(2);
+        b = new Node(4);
         c = new Node(3);
         a.next = b;
         b.next = c;
         l1 = a;
         printNode(l1);
 
-        a = new Node(4);
-        b = new Node(5);
-        c = new Node(6);
+        a = new Node(5);
+        b = new Node(6);
+        c = new Node(4);
         a.next = b;
         b.next = c;
         l2 = a;
@@ -58,23 +62,33 @@ public class TwoSingleListSumTests {
 
     @Test
     void run2() {
-        Node a, b, c;
+        Node a;
         Node l1, l2;
 
-        a = new Node(9);
-        b = new Node(9);
-        c = new Node(9);
-        a.next = b;
-        b.next = c;
-        l1 = a;
+        // Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+        // Output: [8,9,9,9,0,0,0,1]
+
+        var dummyHead = new Node(9);
+        dummyHead.next = new Node(9);
+        a = dummyHead.next;
+        for (int i = 0; i < 6; i++) {
+            a.next = new Node(9);
+            a = a.next;
+        }
+        l1 = dummyHead.next;
+        dummyHead = null;
         printNode(l1);
 
-        a = new Node(9);
-        b = new Node(9);
-        c = new Node(0);
-        a.next = b;
-        b.next = c;
-        l2 = a;
+        dummyHead = new Node(9);
+        dummyHead.next = new Node(9);
+        a = dummyHead.next;
+        for (int i = 0; i < 3; i++) {
+            a.next = new Node(9);
+            a = a.next;
+        }
+        l2 = dummyHead.next;
+        dummyHead.next = null;
+        dummyHead = null;
         printNode(l2);
 
         Node n = nodeSumTestA(l1, l2);
@@ -87,7 +101,7 @@ public class TwoSingleListSumTests {
         Node curr = dummyHead;
         int carry = 0;
 
-        while (l1 != null || l2 != null || carry != 0) {
+        while (l1 != null || l2 != null || carry > 0) {
             int x = (l1 != null) ? l1.data : 0;
             int y = (l2 != null) ? l2.data : 0;
             int sum = carry + x + y;
@@ -110,17 +124,20 @@ public class TwoSingleListSumTests {
         Node a, b, c;
         Node l1, l2;
 
-        a = new Node(1);
-        b = new Node(2);
+        // Input: l1 = [2, 4, 3], l2 = [5, 6, 4]
+        // Output: [7, 0, 8]
+
+        a = new Node(2);
+        b = new Node(4);
         c = new Node(3);
         a.next = b;
         b.next = c;
         l1 = a;
         printNode(l1);
 
-        a = new Node(4);
-        b = new Node(5);
-        c = new Node(6);
+        a = new Node(5);
+        b = new Node(6);
+        c = new Node(4);
         a.next = b;
         b.next = c;
         l2 = a;
@@ -132,23 +149,33 @@ public class TwoSingleListSumTests {
 
     @Test
     void runA2() {
-        Node a, b, c;
+        Node a;
         Node l1, l2;
 
-        a = new Node(9);
-        b = new Node(9);
-        c = new Node(9);
-        a.next = b;
-        b.next = c;
-        l1 = a;
+        // Input: l1 = [9,9,9,9,9,9,9], l2 = [9,9,9,9]
+        // Output: [8,9,9,9,0,0,0,1]
+
+        var dummyHead = new Node(9);
+        dummyHead.next = new Node(9);
+        a = dummyHead.next;
+        for (int i = 0; i < 6; i++) {
+            a.next = new Node(9);
+            a = a.next;
+        }
+        l1 = dummyHead.next;
+        dummyHead = null;
         printNode(l1);
 
-        a = new Node(9);
-        b = new Node(9);
-        c = new Node(0);
-        a.next = b;
-        b.next = c;
-        l2 = a;
+        dummyHead = new Node(9);
+        dummyHead.next = new Node(9);
+        a = dummyHead.next;
+        for (int i = 0; i < 3; i++) {
+            a.next = new Node(9);
+            a = a.next;
+        }
+        l2 = dummyHead.next;
+        dummyHead.next = null;
+        dummyHead = null;
         printNode(l2);
 
         Node n = nodeSumTestA(l1, l2);
