@@ -1,5 +1,10 @@
 plugins {
 	id 'java'
+	id 'application' //for gradle tasks
+}
+
+ext {
+	junitBomVersion = '5.10.2'
 }
 
 group = 'com.example'
@@ -19,11 +24,10 @@ configurations {
 }
 
 dependencies {
-	testImplementation(platform('org.junit:junit-bom:5.10.2'))
+	testImplementation(platform("org.junit:junit-bom:${junitBomVersion}"))
 	testImplementation('org.junit.jupiter:junit-jupiter')
 	testRuntimeOnly('org.junit.platform:junit-platform-launcher')
 }
-
 
 test {
 	useJUnitPlatform()
