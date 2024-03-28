@@ -103,8 +103,8 @@ public class TwoSingleListSumTests {
         while (l1 != null || l2 != null || c > 0) {
             int v1 = (l1 == null) ? 0 : l1.data;
             int v2 = (l2 == null) ? 0 : l2.data;
-
             int v = v1 + v2 + c;
+
             c = v / 10;
             last.next = new Node(v % 10);
             last = last.next;
