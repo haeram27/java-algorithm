@@ -29,23 +29,19 @@ dependencies {
 	testRuntimeOnly('org.junit.platform:junit-platform-launcher')
 }
 
+// gradle cleanTest test --tests 'Hello*.hello'
+// gradle test --rerun-tasks --tests 'Hello*.hello'
 test {
 	useJUnitPlatform()
 	testLogging {
-		events "passed", "skipped", "failed"
+		showStandardStreams = true
+		showCauses = true
+		showExceptions = true
+		showStackTraces = true
+		exceptionFormat = 'full'
+		events "passed", "skipped", "failed", "standardOut", "standardError"
 	}
 }
-
-// test {
-// 	testLogging {
-// 		showStandardStreams = true
-// 		showCauses = true
-// 		showExceptions = true
-// 		showStackTraces = true
-// 		exceptionFormat = 'full'
-// 		events "passed", "skipped", "failed", "standardOut", "standardError"
-// 	}
-// }
 
 jar {
 	enabled = false
