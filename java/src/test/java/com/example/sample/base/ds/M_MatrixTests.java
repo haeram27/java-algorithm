@@ -54,7 +54,7 @@ public class M_MatrixTests {
 
     @ParameterizedTest
     @MethodSource("provideSquareLength")
-    void allSubSquare(int rowLen, int colLen) {
+    void countAllSubSquare(int rowLen, int colLen) {
         int count = 0;
         // TODO:
 
@@ -64,7 +64,7 @@ public class M_MatrixTests {
     /* Answer */
     @ParameterizedTest
     @MethodSource("provideSquareLength")
-    void allSubSquareA(int rowLen, int colLen) {
+    void countAllSubSquareA(int rowLen, int colLen) {
         int count = 0;
         int maxOffset = Math.max(rowLen, colLen);
 
